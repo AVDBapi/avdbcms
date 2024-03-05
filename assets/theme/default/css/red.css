@@ -1,0 +1,332 @@
+.btn-create-album,
+.btn-view-more {
+    border-color: #d50055;
+    background: #d50055;
+}
+#login-box .login-toggle {
+    background: #d50055;
+}
+.btn-login {
+    background: #d50055;
+}
+#primary-bar .social-icon ul li {
+    border-bottom: 2px solid #d50055;
+}
+#primary-bar .social-icon ul li a:hover {
+    color: #d50055;
+}
+/*
+#primary-bar .login a {
+    color:#d50055;
+}
+*/
+#primary-bar .login .svg path {
+    fill: #d50055;
+}
+#primary-bar .login .media .media-left i.fa {
+    color: #d50055;
+}
+.top-shadow span a:hover {
+    color: #d50055;
+}
+.svg:hover path {
+    fill: #d50055;
+}
+.movie-heading span {
+    color: #d50055;
+    border-bottom: 1px solid #d50055;
+}
+.movie-title a:hover {
+    color: #d50055;
+}
+.movie-title p i.fa:hover {
+    color: #d50055;
+}
+.hd-vid-auth-name a:hover,
+.post-video-aut-name a:hover {
+    color: #d50055;
+}
+p.hd-movie-desc a:hover,
+p.blog-movie-desc a:hover {
+    color: #d50055;
+}
+.sidebar h1 a:hover,
+.latest-post h1 a:hover {
+    color: #d50055;
+}
+h1.sidebar-title {
+    background: #d50055;
+}
+.tags ul li a:hover {
+    background: #d50055;
+}
+.footer-about .bottom-social li a:hover {
+    background: #d50055;
+    /*box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.6);*/
+}
+.category-list li a:hover {
+    color: #d50055;
+}
+.post-category-list li a:hover {
+    color: #d50055;
+}
+.btn-send {
+    background: #d50055;
+}
+.formOverlay:before {
+    color: #d50055;
+}
+/*
+#copyright {
+    background: #d50055;
+}
+*/
+.video-info-bar ul li a:hover {
+    color: #d50055;
+}
+.input-top-line {
+    background: #d50055;
+}
+.input-bottom-line {
+    background: #d50055;
+}
+.btn-snd {
+    background: #d50055;
+}
+.breadcrumb li.active {
+    color: #d50055;
+}
+.video-info-bar .info-ul .sharing-drop:hover button:before {
+    color: #d50055;
+}
+.btn-create-album:hover,
+.btn-create-album:active,
+.btn-create-album:focus,
+.btn-view-more:hover,
+.btn-view-more:active,
+.btn-view-more:focus {
+    background-color: #499c4c;
+    border-color: #499c4c;
+}
+.btn-login:hover {
+    background: #499c4c;
+}
+.btn-send:hover,
+.btn-send:active,
+.btn-send:focus {
+    background: #499c4c;
+}
+/* menu */
+#cssmenu > ul > li:hover > a,
+#cssmenu > ul > li.active > a {
+    color: #d50055;
+}
+#cssmenu ul ul li:hover > a,
+#cssmenu ul ul li a:hover {
+    background-color: #d50055;
+    color: #fff;
+}
+#cssmenu > ul > li.has-sub:hover > a:after {
+    color: #d50055;
+}
+#cssmenu > ul > li.has-sub:hover > a:before {
+    color: #d50055;
+}
+h1.sidebar-title {
+    /*border-left: 3px solid #a20404;
+    border-right: 3px solid #a20404;*/
+    border-bottom: 3px solid #a20404;
+}
+/*  ----------------------  menu bar  ---------------------- */
+.login-dropdown {
+    border-top: solid 5px #d50055;
+    border-left: solid 1px #d50055;
+    border-right: solid 1px #d50055;
+    border-bottom: solid 2px #d50055;
+}
+.two-column-navbar {
+    border-top: solid 5px #d50055;
+    border-left: solid 1px #d50055;
+    border-right: solid 1px #d50055;
+    border-bottom: solid 2px #d50055;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.three-column-navbar {
+    border-bottom: solid 5px #d50055;
+    border-left: solid 1px #d50055;
+    border-right: solid 1px #d50055;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+/*  ----------------------  End menu bar  ---------------------- */
+.sidebar .sb-title {
+    background: #d50055;
+}
+.menu-item li a:hover {
+    color: #d50055;
+}
+
+.pagination li a:hover,
+.pagination li a:active,
+.pagination li a:focus,
+.pagination li.active a,
+.pagination li.active a:hover {
+    color: #d50055;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #d50055;
+    border-color: #d50055
+}
+
+.btn-success.focus,
+.btn-success:focus {
+    color: #fff;
+    background-color: #429044;;
+    border-color: #429044;
+}
+
+.btn-success:hover {
+    color: #fff;
+    background-color: #d50055;
+    border-color: #d50055
+}
+
+.btn-success.active,
+.btn-success:active,
+.open>.dropdown-toggle.btn-success {
+    color: #fff;
+    background-color: #429044;;
+    border-color: #429044;
+}
+
+.btn-success.active.focus,
+.btn-success.active:focus,
+.btn-success.active:hover,
+.btn-success:active.focus,
+.btn-success:active:focus,
+.btn-success:active:hover,
+.open>.dropdown-toggle.btn-success.focus,
+.open>.dropdown-toggle.btn-success:focus,
+.open>.dropdown-toggle.btn-success:hover {
+    color: #fff;
+    background-color: #429044;
+    border-color: #429044
+}
+
+.btn-success.active,
+.btn-success:active,
+.open>.dropdown-toggle.btn-success {
+    background-image: none
+}
+
+.btn-success.disabled.focus,
+.btn-success.disabled:focus,
+.btn-success.disabled:hover,
+.btn-success[disabled].focus,
+.btn-success[disabled]:focus,
+.btn-success[disabled]:hover,
+fieldset[disabled] .btn-success.focus,
+fieldset[disabled] .btn-success:focus,
+fieldset[disabled] .btn-success:hover {
+    background-color: #d50055;
+    border-color: #3d7b3f
+}
+
+.btn-success .badge {
+    color: #d50055;
+    background-color: #fff
+}
+
+.pagination-hvr {
+    background: #d50055;
+    }
+
+.pagination li:hover .pagination-hvr,
+.pagination li.active .pagination-hvr {
+    background: #d50055;
+}
+#primary-bar .social-icon ul li {
+    border-bottom: 2px solid #d50055;
+}
+.search.open {
+    border: 2px solid #d50055;
+}
+
+.panel-primary > .panel-heading {
+    background-color: #d50055;
+    border-color: #de0318;
+}
+.movies-list-wrap{ display: block; overflow:hidden; margin: 0 0 40px;}
+.movies-list-wrap .ml-title{ display: block; margin-bottom: 5px; overflow: hidden;}
+.movies-list-wrap .ml-title span.title{font-size: 18px; font-weight: 400; display: inline-block; height: 40px; line-height: 40px; color: #fff; margin-right: 20px; position: relative;}
+.movies-list-wrap .ml-title span.title:before{ content: ""; width: 50px; height: 2px; background: #d50055; display: inline-block; position: absolute; bottom: 0; left: 0;}
+.movies-list-wrap .ml-title span.title-cate{ border: none; font-size: 22px; font-weight: 400;}
+.movies-list-wrap .ml-title span.title-cate:before{ display: none;}
+.movies-list-wrap .ml-title span i{ font-size: 14px;}
+.movies-list-wrap .ml-title .nav-tabs{ display: inline-block; margin-left: 0px; margin-top: 8px; border-bottom: none;}
+.movies-list-wrap .ml-title .nav-tabs li.active a{ border-radius: 2px; background: #d50055 !important; color: #fff;}
+.movies-list-wrap .ml-title .nav-tabs li a{ color:#d50055; border: none; height: 32px; line-height: 32px; background: none !important; padding: 0 15px; text-align: center; min-width: 60px;text-transform: capitalize;}
+
+.owl-carousel .owl-next,
+.owl-carousel .owl-prev {
+    background-color: #d50055; 
+}
+.movie-heading span:before {
+   background-color: #d50055;  
+}
+.dropdown-menu > li > a:hover {
+    color: #d50055;
+}
+.navbar-default .navbar-nav>li.dropdown>a:focus, .navbar-default .navbar-nav>li.dropdown>a:hover, .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .sidebar .sidebar-menu ul li:hover, .sidebar .sidebar-menu ul li:hover a, .sidebar .sidebar-menu ul li.active a {
+    color: #d50055;
+}
+
+/*v3.3*/
+.navbar-default .navbar-nav>li.dropdown>a:focus, .navbar-default .navbar-nav>li.dropdown>a:hover, .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .sidebar .sidebar-menu ul li:hover, .sidebar .sidebar-menu ul li:hover a, .sidebar .sidebar-menu ul li.active a {
+    color: #d50055;
+}
+.dropdown-menu > li > a:hover {
+    color: #d50055 !important;
+}
+.scrollToTop {
+    background: #d50055;
+}
+/*-------------------------------------------------
+    [ ## scrollbar ]
+*/
+  
+  *::-webkit-scrollbar {
+    width: 6px;
+    background-color: #d500cc;
+  }
+  
+  *::-webkit-scrollbar-button {
+    background-color: #d50055;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #d50055;
+  }
+
+  .ui-widget-header {
+    background-color: #d50055 !important;
+}
+.modern-Checkbox label {
+    background-color: #d50055;
+}
+
+ .popover.bottom .arrow:after {
+    border-bottom-color: #d50099 !important;
+  }
+  
+  .popover-title {
+     background: #d50055 !important;
+     border-bottom-color: #d50099 !important;
+  
+  }
+

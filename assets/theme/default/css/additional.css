@@ -1,0 +1,211 @@
+.btn-fb {
+    color: #fff;
+    background-color: #4267b2;
+    border-color: #4267B3;
+}
+.btn-fb:active, .btn-fb:hover {
+    background: #3B5CA0;
+    color: #fff;
+}
+
+.btn-gplus {
+    color: #fff;
+    background-color: #E93F2E;
+    border-color: #b72213;
+}
+.btn-gplus:active, .btn-gplus:hover {
+    background: #b72213;
+    color: #fff;
+}
+
+
+/* .video_quality, .total_episodes{
+    position: absolute;
+    top: 5px;
+    left:5px;
+    z-index: 111;
+}
+
+.video_year{
+    position: absolute;
+    top: 5px;
+    left:35px;
+    z-index: 111;
+} */
+
+.new-label{
+    position: absolute;
+    bottom: 30px;
+    left: 0px;
+    z-index: 111;
+}
+
+.imdb-rating{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 111;
+}
+
+.label-primary {
+    background-color: #673ab7;
+}
+/* #ff1db4 */
+.label-year {
+    background-color: #e10c9a;    
+}
+
+.label-imdb {
+    color: rgb(0, 0, 0);
+    background-color: #E2B616;
+}
+
+.label-new {
+    color: rgb(0, 0, 0);
+    background-color: #ff0000c2;
+    /* background-color: #e21616; */
+}
+
+@media (max-width:380px) {  
+    .video_year_movie{
+        position: absolute;
+        top: 5px;
+        left:5px;
+        z-index: 111;
+    }  
+
+    .video_year_tv{
+        position: absolute;
+        top: 25px;
+        left:5px;
+        z-index: 111;
+    } 
+
+    .video_quality_movie, .total_episodes{
+        position: absolute;
+        top: 25px;
+        left:8px;
+        z-index: 111;
+    }
+
+    .video_quality_tv, .total_episodes{
+        position: absolute;
+        top: 5px;
+        left:5px;
+        z-index: 111;
+    }
+  
+
+}  
+
+
+@media (min-width:381px) {  
+    .video_year_movie{
+        position: absolute;
+        top: 5px;
+        left:35px;
+        z-index: 111;
+    }  
+
+    .video_year_tv{
+        position: absolute;
+        top: 5px;
+        left:5px;
+        z-index: 111;
+    }
+
+
+    .video_quality_movie, .total_episodes{
+        position: absolute;
+        top: 5px;
+        left:5px;
+        z-index: 111;
+    }
+
+
+    .video_quality_tv, .total_episodes{
+        position: absolute;
+        top: 5px;
+        left:43px;
+        z-index: 111;
+    }
+}
+
+
+
+
+
+/* Trailer */
+
+  
+.trailer-container{
+    width:408px;
+    height: 230px;
+    overflow:hidden;
+    position:relative;
+  }
+  
+  @media (max-width:420px) {
+    .trailer-container{
+    width: 218px !important;
+    height: 120px !important;
+  }
+  
+  }
+
+  .trailer-container iframe{
+    position: absolute;
+    top: -60px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 120px);
+  }
+  /* .trailer-foreground{
+    pointer-events: none;
+  } */
+  
+  .popover {
+     background-color: black;
+     max-width:440px;
+    
+  }
+  
+  @media (max-width:420px) {
+  
+    .popover {
+     max-width:250px!important;
+    
+  }
+    }
+  
+  
+  
+  .popover.top .arrow:after {
+    border-top-color: black;
+  }
+  .popover.bottom .arrow:after {
+    border-bottom-color: #d50055;
+  }
+  
+  .popover-content {
+        background-color: black;
+        color: white; 
+     }
+  
+  .popover-title {
+     background: #d50055;
+     color: white;
+     border-color: #d50055bf;
+     font-size: 17px;
+     font-weight: bold;
+     text-align: center;
+  
+  }
+
+    .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group {
+        z-index: 2;
+        margin-left: 0;
+        border-radius: 0 5px 5px 0;
+    }
+
+

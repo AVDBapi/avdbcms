@@ -1,0 +1,84 @@
+.row {
+    padding: 10px;
+}
+
+.btn {
+    text-transform: uppercase;
+}
+
+.app-sidebar {
+    padding-top: 51px;
+}
+
+.card-title {
+    padding: 20px;
+    font-size: 14px;
+}
+
+.panel-title {
+    padding: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #009688;
+}
+
+button.close {
+    padding: 10px;
+    color: #fff;
+}
+
+.parsley-required {
+    color: red;
+    list-style: none;
+    margin-left: -35px;
+}
+
+.treeview-item {
+    padding: 5px 5px 5px 12px;
+    /*margin-left: 10px;*/
+}
+
+.treeview-item.active,
+.treeview-item:hover,
+.treeview-item:focus {
+    background: #009688;
+}
+
+.treeview-item.active {
+    /*border-left: 1px solid #009688;*/
+}
+
+.header-line {
+    background-color: #e5e5e5;
+    height: 2px;
+    width: 100%;
+    content: '';
+    display: block;
+}
+
+.bootstrap-tagsinput .badge {
+    background-color: #009688;
+    border: 1px solid #035d54;
+}
+
+.swal-overlay {
+    background-color: rgba(43, 165, 137, 0.45);
+}
+
+.select2-container--open .select2-dropdown--below {
+    /*margin-top: 50px;*/
+}
+
+label.control-label {
+    text-transform: capitalize;
+}
+
+.app-sidebar ul.app-menu {
+    text-transform: uppercase;
+}
+
+.bg-gray-50 {
+    background-color: #f2f2f2 !important;
+}

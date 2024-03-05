@@ -1,0 +1,11 @@
+/* movies list*/
+.movies-list-wrap{ display: block; overflow:hidden; margin: 0 0 40px;}
+.movies-list-wrap .ml-title{ display: block; margin-bottom: 5px; overflow: hidden;}
+.movies-list-wrap .ml-title span{font-size: 18px; font-weight: 400; display: inline-block; height: 40px; line-height: 40px; color: #fff; margin-right: 20px; position: relative;}
+.movies-list-wrap .ml-title span:before{ content: ""; width: 50px; height: 2px; background: #0088cc; display: inline-block; position: absolute; bottom: 0; left: 0;}
+.movies-list-wrap .ml-title span.title-cate{ border: none; font-size: 22px; font-weight: 400;}
+.movies-list-wrap .ml-title span.title-cate:before{ display: none;}
+.movies-list-wrap .ml-title span i{ font-size: 14px;}
+.movies-list-wrap .ml-title .nav-tabs{ display: inline-block; margin-left: 0px; margin-top: 8px; border-bottom: none;}
+.movies-list-wrap .ml-title .nav-tabs li.active a{ border-radius: 2px; background: #0088cc !important; color: #fff;}
+.movies-list-wrap .ml-title .nav-tabs li a{ border: none; height: 32px; line-height: 32px; background: none !important; padding: 0 15px; text-align: center; min-width: 60px;}

@@ -1,0 +1,267 @@
+.btn-create-album,
+.btn-view-more {
+    border-color: #0088CC;
+    background: #0088CC;
+}
+#login-box .login-toggle {
+    background: #0088CC;
+}
+.btn-login {
+    background: #0088CC;
+}
+#primary-bar .social-icon ul li {
+    border-bottom: 2px solid #0088CC;
+}
+#primary-bar .social-icon ul li a:hover {
+    color: #0088CC;
+}
+/*
+#primary-bar .login a {
+    color:#0088CC;
+}
+*/
+#primary-bar .login .svg path {
+    fill: #0088CC;
+}
+#primary-bar .login .media .media-left i.fa {
+    color: #0088CC;
+}
+.top-shadow span a:hover {
+    color: #0088CC;
+}
+.svg:hover path {
+    fill: #0088CC;
+}
+.movie-heading span {
+    /*color: #0088CC;
+    border-bottom: 1px solid #0088CC;*/
+}
+.movie-title a:hover {
+    color: #0088CC;
+}
+.movie-title p i.fa:hover {
+    color: #0088CC;
+}
+.hd-vid-auth-name a:hover,
+.post-video-aut-name a:hover {
+    color: #0088CC;
+}
+p.hd-movie-desc a:hover,
+p.blog-movie-desc a:hover {
+    color: #0088CC;
+}
+.sidebar h1 a:hover,
+.latest-post h1 a:hover {
+    color: #0088CC;
+}
+h1.sidebar-title {
+    background: #0088CC;
+}
+.tags ul li a:hover {
+    background: #0088CC;
+}
+.footer-about .bottom-social li a:hover {
+    background: #0088CC;
+    /*box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.6);*/
+}
+.category-list li a:hover {
+    color: #0088CC;
+}
+.post-category-list li a:hover {
+    color: #0088CC;
+}
+.btn-send {
+    background: #0088CC;
+}
+.formOverlay:before {
+    color: #0088CC;
+}
+/*
+#copyright {
+    background: #0088CC;
+}
+*/
+.video-info-bar ul li a:hover {
+    color: #0088CC;
+}
+.input-top-line {
+    background: #0088CC;
+}
+.input-bottom-line {
+    background: #0088CC;
+}
+.btn-snd {
+    background: #0088CC;
+}
+.breadcrumb li.active {
+    color: #0088CC;
+}
+.video-info-bar .info-ul .sharing-drop:hover button:before {
+    color: #0088CC;
+}
+.btn-create-album:hover,
+.btn-create-album:active,
+.btn-create-album:focus,
+.btn-view-more:hover,
+.btn-view-more:active,
+.btn-view-more:focus {
+    background-color: #499c4c;
+    border-color: #499c4c;
+}
+.btn-login:hover {
+    background: #499c4c;
+}
+.btn-send:hover,
+.btn-send:active,
+.btn-send:focus {
+    background: #499c4c;
+}
+/* menu */
+#cssmenu > ul > li:hover > a,
+#cssmenu > ul > li.active > a {
+    color: #0088CC;
+}
+#cssmenu ul ul li:hover > a,
+#cssmenu ul ul li a:hover {
+    background-color: #0088CC;
+    color: #fff;
+}
+#cssmenu > ul > li.has-sub:hover > a:after {
+    color: #0088CC;
+}
+#cssmenu > ul > li.has-sub:hover > a:before {
+    color: #0088CC;
+}
+h1.sidebar-title {
+    /*border-left: 3px solid #055b86;
+    border-right: 3px solid #055b86;*/
+    border-bottom: 3px solid #055b86;
+}
+/*  ----------------------  menu bar  ---------------------- */
+.login-dropdown {
+    border-top: solid 5px #0088CC;
+    border-left: solid 1px #0088CC;
+    border-right: solid 1px #0088CC;
+    border-bottom: solid 2px #0088CC;
+}
+.two-column-navbar {
+    border-top: solid 5px #0088CC;
+    border-left: solid 1px #0088CC;
+    border-right: solid 1px #0088CC;
+    border-bottom: solid 2px #0088CC;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.three-column-navbar {
+    /*border-bottom: solid 5px #0088CC;
+    border-left: solid 1px #0088CC;
+    border-right: solid 1px #0088CC;*/
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+/*  ----------------------  End menu bar  ---------------------- */
+.sidebar .sb-title {
+    background: #0088CC;
+}
+.menu-item li a:hover {
+    color: #fff;
+    background-color: #0088CC;
+}
+.pagination li a:hover,
+.pagination li a:active,
+.pagination li a:focus,
+.pagination li.active a,
+.pagination li.active a:hover {
+    color: #0088CC;
+}
+.btn-success {
+    color: #fff;
+    background-color: #0088CC;
+    border-color: #0088CC
+}
+.btn-success.focus,
+.btn-success:focus {
+    color: #fff;
+    background-color: #0a6ea0;
+    border-color: #337ab7;
+}
+.btn-success:hover {
+    color: #fff;
+    background-color: #0a6ea0;
+    border-color: #337ab7;
+}
+.btn-success.active,
+.btn-success:active,
+.open > .dropdown-toggle.btn-success {
+    color: #fff;
+    background-color: #0a6ea0;
+    border-color: #337ab7;
+}
+.btn-success.active.focus,
+.btn-success.active:focus,
+.btn-success.active:hover,
+.btn-success:active.focus,
+.btn-success:active:focus,
+.btn-success:active:hover,
+.open > .dropdown-toggle.btn-success.focus,
+.open > .dropdown-toggle.btn-success:focus,
+.open > .dropdown-toggle.btn-success:hover {
+    color: #fff;
+    background-color: #0a6ea0;
+    border-color: #337ab7;
+}
+.btn-success.active,
+.btn-success:active,
+.open > .dropdown-toggle.btn-success {
+    background-image: none
+}
+.btn-success.disabled.focus,
+.btn-success.disabled:focus,
+.btn-success.disabled:hover,
+.btn-success[disabled].focus,
+.btn-success[disabled]:focus,
+.btn-success[disabled]:hover,
+fieldset[disabled] .btn-success.focus,
+fieldset[disabled] .btn-success:focus,
+fieldset[disabled] .btn-success:hover {
+    background-color: #4da950;
+    border-color: #3d7b3f
+}
+.btn-success .badge {
+    color: #4da950;
+    background-color: #fff
+}
+.pagination-hvr {
+    background: #0088CC;
+}
+.pagination li:hover .pagination-hvr,
+.pagination li.active .pagination-hvr {
+    background: #0088CC;
+}
+#primary-bar .social-icon ul li {
+    border-bottom: 2px solid #0088CC;
+}
+.search.open {
+    border: 2px solid #0088CC;
+}
+.panel-primary > .panel-heading {
+    background-color: #0088CC;
+    border-color: #337ab7;
+}
+.movies-list-wrap{ display: block; overflow:hidden; margin: 0 0 40px;}
+.movies-list-wrap .ml-title{ display: block; margin-bottom: 5px; overflow: hidden;}
+.movies-list-wrap .ml-title span.title{font-size: 18px; font-weight: 400; display: inline-block; height: 40px; line-height: 40px; color: #fff; margin-right: 20px; position: relative;}
+.movies-list-wrap .ml-title span.title:before{ content: ""; width: 50px; height: 2px; background: #0088cc; display: inline-block; position: absolute; bottom: 0; left: 0;}
+.movies-list-wrap .ml-title span.title-cate{ border: none; font-size: 22px; font-weight: 400;}
+.movies-list-wrap .ml-title span.title-cate:before{ display: none;}
+.movies-list-wrap .ml-title span i{ font-size: 14px;}
+.movies-list-wrap .ml-title .nav-tabs{ display: inline-block; margin-left: 0px; margin-top: 8px; border-bottom: none;}
+.movies-list-wrap .ml-title .nav-tabs li.active a{ border-radius: 2px; background: #0088cc !important; color: #fff;}
+.movies-list-wrap .ml-title .nav-tabs li a{ color:#0088cc; border: none; height: 32px; line-height: 32px; background: none !important; padding: 0 15px; text-align: center; min-width: 60px;text-transform: capitalize;}
+
+.owl-carousel .owl-next,
+.owl-carousel .owl-prev {
+    background-color: #0088CC; 
+}
