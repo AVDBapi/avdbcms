@@ -1,11 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * OVOO
+ * AVDBCMS
  *
- * OVOO-Movie & Video Streaming CMS with Unlimited TV-Series
+ * AVDBCMS-Movie & Video Streaming CMS with Unlimited TV-Series
  *
- * @package     OVOO
+ * @package     AVDBCMS
  * @author      Abdul Mannan
  * @copyright   Copyright (c) 2014 - 2016 SpaGreen,
  * @license     http://codecanyon.net/wiki/support/legal-terms/licensing-terms/ 

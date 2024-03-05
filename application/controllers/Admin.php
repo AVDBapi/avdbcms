@@ -2,11 +2,11 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 /**
- * OVOO - Live TV & Movie Portal CMS with Membership System
- * ---------------------- OVOO --------------------
+ * AVDBCMS - Live TV & Movie Portal CMS with Membership System
+ * ---------------------- AVDBCMS --------------------
  * ------- Live TV & Movie Portal CMS --------
  *
- * @package     OVOO - Live TV & Movie Portal CMS with Membership System
+ * @package     AVDBCMS - Live TV & Movie Portal CMS with Membership System
  * @author      SpaGreen Creative
  * @copyright   Copyright (c) 2014 - 2022 SpaGreen,
  * @license     http://codecanyon.net/wiki/support/legal-terms/licensing-terms/ 

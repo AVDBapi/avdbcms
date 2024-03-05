@@ -1,6 +1,6 @@
 <?php defined("BASEPATH") OR exit("No direct script access allowed");
 
-$lang["site_title"] = "OVOO v222";
+$lang["site_title"] = "AVDBCMS v222";
 $lang["copyright_text"] = "Copyright Text change it from Language > Language Name > Edit Phrase";
 $lang["brows_all_movies_and_tvseries"] = "Brows all movies & series";
 $lang["search"] = "Search";

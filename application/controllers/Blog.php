@@ -3,11 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * Ovoo-Movie & Video Streaming CMS Pro
- * ----------------------------- OVOO -----------------------------
+ * ----------------------------- AVDBCMS -----------------------------
  * -------------- Movie & Video Streaming CMS Pro -----------------
  * -------- Professional video content management system ----------
  *
- * @package     OVOO-Movie & Video Streaming CMS Pro
+ * @package     AVDBCMS-Movie & Video Streaming CMS Pro
  * @author      Abdul Mannan/Spa Green Creative
  * @copyright   Copyright (c) 2014 - 2017 SpaGreen,
  * @license     http://codecanyon.net/wiki/support/legal-terms/licensing-terms/ 

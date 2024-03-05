@@ -2,12 +2,12 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 /**
- * OVOO-Live TV & Movie Portal CMS with Unlimited TV-Series
- * ---------------------- OVOO --------------------
+ * AVDBCMS-Live TV & Movie Portal CMS with Unlimited TV-Series
+ * ---------------------- AVDBCMS --------------------
  * ------- Live TV & Movie Portal CMS with Unlimited TV-Series --------
  * - Professional live tv and movie management system -
  *
- * @package     OVOO-Movie & Video Stremaing CMS Pro
+ * @package     AVDBCMS-Movie & Video Stremaing CMS Pro
  * @author      Abdul Mannan/SpaGreen Creative
  * @copyright   Copyright (c) 2014 - 2019 SpaGreen,
  * @license     http://codecanyon.net/wiki/support/legal-terms/licensing-terms/ 
