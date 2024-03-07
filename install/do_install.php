@@ -1,22 +1,22 @@
 <?php
 // do not change it
-define('VERSION','3.4');
-define('ITEM_ID','20180569');
+define('VERSION', '3.4');
+define('ITEM_ID', '20180569');
 ini_set('max_execution_time', 900); //300 seconds 
 
 if (isset($_POST)) {
-    $host           = $_POST["host"];
-    $dbuser         = $_POST["dbuser"];
-    $dbpassword     = $_POST["dbpassword"];
-    $dbname         = $_POST["dbname"];
+    $host = $_POST["host"];
+    $dbuser = $_POST["dbuser"];
+    $dbpassword = $_POST["dbpassword"];
+    $dbname = $_POST["dbname"];
 
-    $first_name     = $_POST["first_name"];
-    $last_name      = $_POST["last_name"];
-    $admin_name     = $first_name.' '.$last_name;
-    $email          = $_POST["email"];
+    $first_name = $_POST["first_name"];
+    $last_name = $_POST["last_name"];
+    $admin_name = $first_name . ' ' . $last_name;
+    $email = $_POST["email"];
     $login_password = $_POST["password"] ? $_POST["password"] : "";
 
-    $purchase_code  = $_POST["purchase_code"];
+    $purchase_code = $_POST["purchase_code"];
 
     //check required fields
     if (!($host && $dbuser && $dbname && $first_name && $last_name && $email && $login_password && $purchase_code)) {
@@ -44,7 +44,7 @@ if (isset($_POST)) {
 
 
 
-    $script_url = str_replace("install/do_install.php","",(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");    
+    $script_url = str_replace("install/do_install.php", "", (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
     $fields = array(
         'domain' => urlencode($_SERVER['SERVER_NAME']),
         'version' => urlencode(VERSION),
@@ -53,29 +53,31 @@ if (isset($_POST)) {
         'purchase_code' => urlencode($purchase_code)
     );
     $fields_string = '';
-    foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+    foreach ($fields as $key => $value) {
+        $fields_string .= $key . '=' . $value . '&';
+    }
     rtrim($fields_string, '&');
 
-    $url ="https://desk.spagreen.net/verify-installation";
+    $url = "https://desk.spagreen.net/verify-installation";
     $ch = curl_init();
-    curl_setopt($ch,CURLOPT_URL, $url);
-    curl_setopt($ch,CURLOPT_POST, count($fields));
-    curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, count($fields));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-    $curl_response  = curl_exec($ch);
-    $curl_info      = curl_getinfo($ch);
+    $curl_response = curl_exec($ch);
+    $curl_info = curl_getinfo($ch);
     curl_close($ch);
 
     if ($curl_info["http_code"] == "200"):
         $curl_response = json_decode($curl_response);
-        if($curl_response->status):
+        if ($curl_response->status):
             $sql = $curl_response->sql_data;
         else:
             echo json_encode(array("success" => false, "message" => $curl_response->message));
             exit();
-        endif;        
+        endif;
     else:
         echo json_encode(array("success" => false, "message" => "There is a problem to connect with SpaGreen server.Make sure you have active internet connection!"));
         exit();
@@ -130,7 +132,7 @@ if (isset($_POST)) {
 
     $mysqli->multi_query($sql);
     do {
-        
+
     } while (mysqli_more_results($mysqli) && mysqli_next_result($mysqli));
 
 
