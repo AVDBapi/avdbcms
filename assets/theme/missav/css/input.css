@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .deep-black {
+        background-image: linear-gradient(
+            to bottom,
+            #090812,
+            #111520 100vh,
+            #07090e 200vh
+        );
+    }
+}
+@layer base {
+    html {
+        font-family: "Inter", system-ui, sans-serif;
+    }
+}
+@layer components {
+    .scrollToTop {
+        position: fixed;
+        bottom: 0;
+        right: 30px;
+        width: 45px;
+        height: 45px;
+        background: #d50055;
+        color: white;
+        line-height: 45px;
+        font-size: 20px;
+        text-align: center;
+        border-radius: 50%;
+        z-index: 9999;
+        cursor: pointer;
+        transition: all 1s;
+        transform: translateY(100%);
+    }
+    .scrollToTop img {
+        width: 25px;
+    }
+
+    .scrollToTop.active {
+        bottom: 30px;
+        transform: translateY(0%);
+    }
+
+    .scrollToTop:hover,
+    .scrollToTop:focus {
+        color: white;
+    }
+}

@@ -57,3 +57,5 @@ index.php
 /uploads/videos/*
 !uploads/videos/.keep
 !uploads/videos/index.html
+
+/assets/theme/missav/node_modules
