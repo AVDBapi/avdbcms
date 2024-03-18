@@ -22,9 +22,11 @@ $business_phone = ovoo_config('business_phone');
 $contact_email = ovoo_config('contact_email');
 ?>
 
-<nav class="h-16 fixed z-20 w-full container bg-black flex items-center">
-    <a class="flex-none" href="<?php echo base_url(); ?>">
-        <img src="<?php echo base_url(); ?>uploads/system_logo/<?php echo ovoo_config('logo'); ?>" alt="logo">
-    </a>
-    <?php $this->load->view($theme_dir . 'left_menu_item'); ?>
-</nav>
+<div class="sticky top-0 z-20">
+    <nav class="h-16 bg-black flex items-center justify-between md:justify-normal">
+        <a class="flex-none" href="<?php echo base_url(); ?>">
+            <img src="<?php echo base_url(); ?>uploads/system_logo/<?php echo ovoo_config('logo'); ?>" alt="logo">
+        </a>
+        <?php $this->load->view($theme_dir . 'left_menu_item'); ?>
+    </nav>
+</div>

@@ -196,41 +196,28 @@ $assets_dir     =   'assets/theme/default/';
     <?php endif; ?>
     <?php $this->load->view($theme_dir.'disclaimer'); ?>
     <!-- server -->
-    <div class="row">
-        <div class="col-md-12 m-b-10">
-            <div class="season">
-                <?php
-                $sources = $this->common_model->get_video_file_by_videos_id($watch_videos->videos_id);
-                $i=0;
-                if(isset($_GET['key'])){
-                    $current_file_id = $_GET['key'];
-                }else{
-                    $current_file_id = '000000';
-                }
-                foreach($sources as $source):
-                    $i++;
-                    ?>
-                    <a href="<?php echo base_url().'watch/'.$watch_videos->slug.'.html?key='.$source['stream_key']; ?>" class="btn btn-sm btn-inline <?php if($source['stream_key']==$current_file_id){ echo 'btn-success';}else if($current_file_id=='000000' && $i=='1'){ echo 'btn-success';}else{ echo 'btn-default';} ?>"><?php echo $source['label']; ?></a>
-                <?php endforeach; ?>
-                <?php $movie_report_enable =   $this->db->get_where('config' , array('title' =>'movie_report_enable'))->row()->value;?>
-                <div class="pull-right">
-                    <?php if($watch_videos->trailler_youtube_source !=NULL && $watch_videos->trailler_youtube_source !=''): ?>
-                        <a href="<?php echo $watch_videos->trailler_youtube_source; ?>" class="popup-youtube btn btn-sm btn-inline btn-success"><?php echo trans('trailler'); ?></a>
-                    <?php endif; ?>
-                    <?php if($movie_report_enable == '1'): ?>
-                        <a data-toggle="modal" id="menu" class="btn" data-target="#report-modal" data-id="<?php echo base_url('home/view_modal/report/'.$watch_videos->videos_id) ?>" style="text-transform: lowercase;font-size: 13px;color: yellow;" href="#"><i class="fa fa-warning"></i>&nbsp;report</a>
-                    <?php endif; ?>
-                </div>
-                <?php if($movie_report_enable == '1'): $this->load->view($theme_dir.'report'); endif; ?>
+    <div class="p-4 min-h-12 bg-gray-900">
+        <div class="flex items-center justify-between">
+            <?php
+            $sources = $this->common_model->get_video_file_by_videos_id($watch_videos->videos_id);
+            $i=0;
+            if(isset($_GET['key'])){
+                $current_file_id = $_GET['key'];
+            }else{
+                $current_file_id = '000000';
+            }
+            foreach($sources as $source):
+                $i++;
+                ?>
+                <a href="<?php echo base_url().'watch/'.$watch_videos->slug.'.html?key='.$source['stream_key']; ?>" class="px-2 py-1 capitalize rounded <?php if($source['stream_key']==$current_file_id){ echo 'bg-pink-600';}else if($current_file_id=='000000' && $i=='1'){ echo 'bg-pink-600';}else{ echo 'bg-gray-700';} ?>"><?php echo $source['label']; ?></a>
+            <?php endforeach; ?>
+            <?php $movie_report_enable =   $this->db->get_where('config' , array('title' =>'movie_report_enable'))->row()->value;?>
+            <div class="pull-right">
+                <?php if($watch_videos->trailler_youtube_source !=NULL && $watch_videos->trailler_youtube_source !=''): ?>
+                    <a href="<?php echo $watch_videos->trailler_youtube_source; ?>" class="popup-youtube btn btn-sm btn-inline btn-success"><?php echo trans('trailler'); ?></a>
+                <?php endif; ?>
             </div>
         </div>
     </div>
-    <style type="text/css">
-        .season{
-            min-height: 50px;
-            padding: 10px;
-            background-color: rgba(255,255,255, 0.04);
-        }
-    </style>
     <!-- END server -->
 </div>
