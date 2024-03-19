@@ -111,7 +111,7 @@
                 window.location.href = ui.item.url;
             }
         }).data("ui-autocomplete")._renderItem = function (ul, item) {
-            var inner_html = '<a href="' + item.url + '" ><div class="list_item_container"><div class="image"><img src="' + item.image + '" ></div><div class="th-title"><b>' + item.title + '</b></div><br><div class="th-title">' + item.type + '</div></div></a>';
+            var inner_html = '<a href="' + item.url + '" ><div class="list_item_container"><div class="image"><img src="' + item.image + '" ></div><div class="th-title"><b>' + item.title + '</b></div></div></a>';
             return $("<li></li>").data("item.autocomplete", item).append(inner_html).appendTo(ul);
         };
     });

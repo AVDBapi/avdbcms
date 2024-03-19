@@ -62,4 +62,28 @@
     .pagination li.active a {
         @apply bg-pink-500;
     }
+    .modern-Checkbox {
+        @apply m-1;
+    }
+    .modern-Checkbox label {
+        @apply rounded-md text-center bg-gray-800 text-gray-400 px-2 py-1;
+    }
+    .modern-Checkbox [type="checkbox"]:checked + label, .modern-Checkbox [type="checkbox"] :checked + label:hover {
+        @apply bg-pink-500 text-white;
+    }
+    .ui-autocomplete {
+        @apply mt-5 z-50 max-w-xs md:max-w-md bg-gray-800;
+    }
+    .ui-autocomplete .ui-menu-item {
+        @apply p-2
+    }
+    .ui-menu-item .list_item_container {
+        @apply flex;
+    }
+    .list_item_container .image {
+        @apply w-3/12 aspect-video rounded overflow-hidden
+    }
+    .list_item_container .th-title {
+        @apply text-xs md:text-sm w-9/12 ml-2;
+    }
 }

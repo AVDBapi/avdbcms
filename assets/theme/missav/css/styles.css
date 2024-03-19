@@ -688,6 +688,85 @@ html {
   background-color: rgb(236 72 153 / var(--tw-bg-opacity));
 }
 
+.modern-Checkbox {
+  margin: 0.25rem;
+}
+
+.modern-Checkbox label {
+  border-radius: 0.375rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.modern-Checkbox [type="checkbox"]:checked + label, .modern-Checkbox [type="checkbox"] :checked + label:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 72 153 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.ui-autocomplete {
+  z-index: 50;
+  margin-top: 1.25rem;
+  max-width: 20rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+
+@media (min-width: 768px) {
+  .ui-autocomplete {
+    max-width: 28rem;
+  }
+}
+
+.ui-autocomplete .ui-menu-item {
+  padding: 0.5rem;
+}
+
+.ui-menu-item .list_item_container {
+  display: flex;
+}
+
+.list_item_container .image {
+  aspect-ratio: 16 / 9;
+  width: 25%;
+  overflow: hidden;
+  border-radius: 0.25rem;
+}
+
+.list_item_container .th-title {
+  margin-left: 0.5rem;
+  width: 75%;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+@media (min-width: 768px) {
+  .list_item_container .th-title {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 .visible {
   visibility: visible;
 }
@@ -732,6 +811,10 @@ html {
   z-index: 50;
 }
 
+.m-1 {
+  margin: 0.25rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -740,6 +823,11 @@ html {
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .-mb-px {
@@ -784,6 +872,10 @@ html {
 
 .mt-2 {
   margin-top: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
 }
 
 .mt-4 {
@@ -887,6 +979,10 @@ html {
 
 .flex-none {
   flex: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .resize {
@@ -1127,12 +1223,12 @@ html {
   padding-bottom: 1.5rem;
 }
 
-.pt-10 {
-  padding-top: 2.5rem;
+.pt-0 {
+  padding-top: 0px;
 }
 
-.pt-20 {
-  padding-top: 5rem;
+.pt-10 {
+  padding-top: 2.5rem;
 }
 
 .text-left {
@@ -1356,6 +1452,11 @@ html {
 }
 
 @media (min-width: 768px) {
+  .md\:my-5 {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
   .md\:flex {
     display: flex;
   }
@@ -1385,6 +1486,10 @@ html {
   .md\:px-0 {
     padding-left: 0px;
     padding-right: 0px;
+  }
+
+  .md\:pt-20 {
+    padding-top: 5rem;
   }
 
   .md\:pt-6 {
