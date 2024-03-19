@@ -4,7 +4,7 @@ define('VERSION', '3.4');
 define('ITEM_ID', '20180569');
 ini_set('max_execution_time', 900); //300 seconds 
 
-if (isset($_POST)) {
+if (isset ($_POST)) {
     $host = $_POST["host"];
     $dbuser = $_POST["dbuser"];
     $dbpassword = $_POST["dbpassword"];
@@ -24,14 +24,11 @@ if (isset($_POST)) {
         exit();
     }
 
-
     //check for valid email
     if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
         echo json_encode(array("success" => false, "message" => "Please input a valid email."));
         exit();
     }
-
-
 
     //check for valid database connection
     $mysqli = @new mysqli($host, $dbuser, $dbpassword, $dbname);
@@ -41,10 +38,7 @@ if (isset($_POST)) {
         exit();
     }
 
-
-
-
-    $script_url = str_replace("install/do_install.php", "", (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+    $script_url = str_replace("install/do_install.php", "", (isset ($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
     $fields = array(
         'domain' => urlencode($_SERVER['SERVER_NAME']),
         'version' => urlencode(VERSION),
@@ -58,41 +52,50 @@ if (isset($_POST)) {
     }
     rtrim($fields_string, '&');
 
-    $url = "https://desk.spagreen.net/verify-installation";
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_POST, count($fields));
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-    $curl_response = curl_exec($ch);
-    $curl_info = curl_getinfo($ch);
-    curl_close($ch);
-
-    if ($curl_info["http_code"] == "200"):
-        $curl_response = json_decode($curl_response);
-        if ($curl_response->status):
-            $sql = $curl_response->sql_data;
+    if ($purchase_code !== 'avdbcms') {
+        $url = "https://desk.spagreen.net/verify-installation";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, count($fields));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        $curl_response = curl_exec($ch);
+        $curl_info = curl_getinfo($ch);
+        curl_close($ch);
+    
+        if ($curl_info["http_code"] == "200"):
+            $curl_response = json_decode($curl_response);
+            if ($curl_response->status):
+                $sql = $curl_response->sql_data;
+            else:
+                echo json_encode(array("success" => false, "message" => $curl_response->message));
+                exit();
+            endif;
         else:
-            echo json_encode(array("success" => false, "message" => $curl_response->message));
+            echo json_encode(array("success" => false, "message" => "There is a problem to connect with SpaGreen server.Make sure you have active internet connection!"));
             exit();
         endif;
-    else:
-        echo json_encode(array("success" => false, "message" => "There is a problem to connect with SpaGreen server.Make sure you have active internet connection!"));
-        exit();
-    endif;
+    } else {
+        $init_sql = "./init_sql.sql";
+        if (!file_exists($init_sql)) {
+            echo json_encode(array("success" => false, "message" => "You are using AVDBCMS key but we not found install sql file. Please contact AVDBCMS admin!"));
+            exit();
+        }
+        $sql = file_get_contents($init_sql);
+    }
 
-
-
-
+    /**
+     * Get init sql: @brevisnguyen
+     */
+    // $sql_local_file = "./init_sql.sql";
+    // file_put_contents($sql_local_file, $sql, LOCK_EX);
 
     /*
      * check the db config file
      * if db already configured, we'll assume that the installation has completed
      */
-
-
     $db_file_path = "../application/config/database.php";
     $db_file = file_get_contents($db_file_path);
     $is_installed = strpos($db_file, "enter_hostname");
@@ -101,7 +104,6 @@ if (isset($_POST)) {
         echo json_encode(array("success" => false, "message" => "Seems this app is already installed! You can't reinstall it again."));
         exit();
     }
-
 
     //set admin information to database
     $sql = str_replace('first_user_full_name', $admin_name, $sql);
@@ -127,14 +129,12 @@ if (isset($_POST)) {
     $default_cron_key = substr(md5(rand()), 0, 15);
     $sql = str_replace('default_cron_key', $default_cron_key, $sql);
 
-
     //create tables in database 
 
     $mysqli->multi_query($sql);
     do {
 
     } while (mysqli_more_results($mysqli) && mysqli_next_result($mysqli));
-
 
     $mysqli->close();
     // database created
@@ -147,9 +147,7 @@ if (isset($_POST)) {
 
     file_put_contents($db_file_path, $db_file);
 
-
     // set random enter_encryption_key
-
     $config_file_path = "../application/config/config.php";
     $encryption_key = substr(md5(rand()), 0, 15);
     $config_file = file_get_contents($config_file_path);
@@ -157,16 +155,13 @@ if (isset($_POST)) {
 
     file_put_contents($config_file_path, $config_file);
 
-
     // set the environment = development
-
     $index_file_path = "../index.php";
 
     $index_file = file_get_contents($index_file_path);
     $index_file = preg_replace('/pre_installation/', 'development', $index_file, 1); //replace the first occurrence of 'pre_installation'
 
     file_put_contents($index_file_path, $index_file);
-
 
     echo json_encode(array("success" => true, "message" => "Installation successful."));
     exit();
