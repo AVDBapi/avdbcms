@@ -882,6 +882,14 @@ html {
   margin-top: 1rem;
 }
 
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
+.mr-4 {
+  margin-right: 1rem;
+}
+
 .line-clamp-4 {
   overflow: hidden;
   display: -webkit-box;
@@ -969,6 +977,10 @@ html {
   width: 100%;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
 .max-w-xl {
   max-width: 36rem;
 }
@@ -991,6 +1003,14 @@ html {
 
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .flex-wrap {
@@ -1159,6 +1179,21 @@ html {
   background-color: rgb(219 39 119 / var(--tw-bg-opacity));
 }
 
+.bg-slate-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(51 65 85 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-pink-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(190 24 93 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-75 {
   --tw-bg-opacity: 0.75;
 }
@@ -1173,6 +1208,10 @@ html {
 
 .p-4 {
   padding: 1rem;
+}
+
+.p-1 {
+  padding: 0.25rem;
 }
 
 .px-2 {
@@ -1213,6 +1252,16 @@ html {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 .pb-4 {
@@ -1302,6 +1351,18 @@ html {
   text-transform: capitalize;
 }
 
+.normal-case {
+  text-transform: none;
+}
+
+.\!normal-case {
+  text-transform: none !important;
+}
+
+.italic {
+  font-style: italic;
+}
+
 .leading-5 {
   line-height: 1.25rem;
 }
@@ -1361,6 +1422,11 @@ html {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-gray-800 {
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity));
 }
 
 .antialiased {
@@ -1505,6 +1571,11 @@ html {
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1530,6 +1601,10 @@ html {
 
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:flex-row {
+    flex-direction: row;
   }
 
   .lg\:flex-col {
