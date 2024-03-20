@@ -1,6 +1,6 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit ('No direct script access allowed');
 
 /*
   | -------------------------------------------------------------------
@@ -77,9 +77,9 @@ $query_builder = TRUE;
 $db['default'] = array(
     'dsn' => '',
     'hostname' => 'enter_hostname',
-    'username' => 'root',
-    'password' => '',
-    'database' => 'avdbcms',
+    'username' => 'enter_db_username',
+    'password' => 'enter_db_password',
+    'database' => 'enter_database_name',
     'dbdriver' => 'mysqli',
     'dbprefix' => '',
     'pconnect' => FALSE, //set it FALSE if your site has a huge trafic and/or you are saving session data in database
