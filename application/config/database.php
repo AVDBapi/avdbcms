@@ -76,7 +76,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
     'dsn' => '',
-    'hostname' => 'localhost',
+    'hostname' => 'enter_hostname',
     'username' => 'root',
     'password' => '',
     'database' => 'avdbcms',
