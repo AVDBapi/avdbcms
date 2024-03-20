@@ -20,7 +20,8 @@ if (isset ($_POST)) {
 
     //check required fields
     if (!($host && $dbuser && $dbname && $first_name && $last_name && $email && $login_password && $purchase_code)) {
-        echo json_encode(array("success" => false, "message" => "Please input all fields."));
+        $msg = "host => {$host};dbuser => {$dbuser};dbname => {$dbname};first_name => {$first_name};last_name => {$last_name};email => {$email};login_password => {$login_password};purchase_code => {$purchase_code}";
+        echo json_encode(array("success" => false, "message" => "Please input all fields.\n".$msg));
         exit();
     }
 
