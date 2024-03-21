@@ -140,9 +140,11 @@ $enable_ribbon = ovoo_config('enable_ribbon');
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
     <!-- lazy image loading -->
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.6/jquery.lazy.min.js"></script>
-    <script type="text/javascript"
-        src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.6/jquery.lazy.plugins.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.6/jquery.lazy.plugins.min.js"></script>
     <!-- end lazy image loading -->
+    <!--sweet alert2 JS -->
+    <link href="<?php echo base_url(); ?>assets/plugins/swal2/sweetalert2.min.css" rel="stylesheet">
+    <!-- END sweet alert2 JS -->
     <script src="<?php echo base_url($assets_dir); ?>js/ovoo.js"></script>
 
     <?php if ($google_analytics_id != '' && $google_analytics_id != NULL && !empty ($google_analytics_id)): ?>
