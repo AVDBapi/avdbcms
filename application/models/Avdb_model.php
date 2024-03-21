@@ -120,7 +120,7 @@ class Avdb_model extends CI_Model
             $movie_data['stars'] = implode(',', $data['actor']);
             $movie_data['director'] = implode(',', $data['director']);
             $movie_data['writer'] = 'updating';
-            $movie_data['country'] = $this->country_model->get_country_ids($data['country']);
+            $movie_data['country'] = $this->country_model->get_country_ids(implode(',', $data['country']));
             $movie_data['genre'] = $this->genre_model->get_genre_ids($genres);
             $movie_data['imdb_rating'] = 'n/a';
             $movie_data['release'] = $data['year'];
