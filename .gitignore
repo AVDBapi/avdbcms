@@ -1,5 +1,9 @@
 /.idea
 /.vscode
+index.php
+/application/config/config.php
+/application/config/database.php
+/assets/theme/missav/node_modules
 
 /uploads/country/*
 !uploads/country/.keep
@@ -54,5 +58,3 @@
 /uploads/videos/*
 !uploads/videos/.keep
 !uploads/videos/index.html
-
-/assets/theme/missav/node_modules
