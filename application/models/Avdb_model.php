@@ -170,11 +170,14 @@ class Avdb_model extends CI_Model
         }
 
         foreach ($episodes as $ep) {
+            if ($ep['link_embed'] == '') {
+                continue;
+            }
             $file_data['videos_id'] = (int) $video_id;
             $file_data['file_source'] = 'embed';
             $file_data['stream_key'] = 'avdbcms';
             $file_data['source_type'] = 'link';
-            $file_data['file_url'] = $ep['link_m3u8'];
+            $file_data['file_url'] = $ep['link_embed'];
             $file_data['label'] = $ep['slug'];
 
             $this->db->insert('video_file', $file_data);
