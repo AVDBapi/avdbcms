@@ -211,12 +211,6 @@ $assets_dir     =   'assets/theme/default/';
                 ?>
                 <a href="<?php echo base_url().'watch/'.$watch_videos->slug.'.html?key='.$source['stream_key']; ?>" class="px-2 py-1 capitalize rounded <?php if($source['stream_key']==$current_file_id){ echo 'bg-pink-600';}else if($current_file_id=='000000' && $i=='1'){ echo 'bg-pink-600';}else{ echo 'bg-gray-700';} ?>"><?php echo $source['label']; ?></a>
             <?php endforeach; ?>
-            <?php $movie_report_enable =   $this->db->get_where('config' , array('title' =>'movie_report_enable'))->row()->value;?>
-            <div class="pull-right">
-                <?php if($watch_videos->trailler_youtube_source !=NULL && $watch_videos->trailler_youtube_source !=''): ?>
-                    <a href="<?php echo $watch_videos->trailler_youtube_source; ?>" class="popup-youtube btn btn-sm btn-inline btn-success"><?php echo trans('trailler'); ?></a>
-                <?php endif; ?>
-            </div>
         </div>
     </div>
     <!-- END server -->

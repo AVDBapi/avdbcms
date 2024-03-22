@@ -31,6 +31,10 @@ $movie_request_enable = ovoo_config('movie_request_enable');
             <?php echo trans('movies'); ?>
         </a></li>
 
+    <li><a href="<?php echo base_url('tv-series.html') ?>">
+            <?php echo trans('series'); ?>
+        </a></li>
+
     <?php if ($privacy_policy_to_primary_menu == '1'): ?>
         <li><a href="<?php echo base_url('privacy-policy.html') ?>">
                 <?php echo trans('privacy_policy'); ?>
@@ -46,21 +50,25 @@ $movie_request_enable = ovoo_config('movie_request_enable');
                 <?php echo trans('contact'); ?>
             </a></li>
     <?php endif; ?>
-    <?php $languages = $this->language_model->get_languages(); if(count($languages) > 1): ?>
-    <!-- language switch -->
-    <li class="ml-4 relative">
-        <div id="showLang" class="flex items-center justify-center cursor-pointer">
-            <i class="fa-solid fa-language mr-1 text-amber-500"></i>
-            <?php echo $this->language_model->language_by_id($this->session->userdata('active_language_id')); ?>
-        </div>
-        <ul id="langList" class="z-50 absolute hidden right-0 mt-2 rounded-md w-40 bg-neutral-300 text-gray-700 p-1">
-            <?php
-                foreach ($languages as $language) : ?>
-                <li class="mb-1 hover:text-amber-500"><a class="dropdown-item" href="<?php echo base_url('language/language_switch/').$language->short_form; ?>"><?php echo $language->name; ?></a></li>
-            <?php endforeach; ?>
-        </ul>
-    </li>
-    <!-- END language -->
+    <?php $languages = $this->language_model->get_languages();
+    if (count($languages) > 1): ?>
+        <!-- language switch -->
+        <li class="ml-4 relative">
+            <div id="showLang" class="flex items-center justify-center cursor-pointer">
+                <i class="fa-solid fa-language mr-1 text-amber-500"></i>
+                <?php echo $this->language_model->language_by_id($this->session->userdata('active_language_id')); ?>
+            </div>
+            <ul id="langList" class="z-50 absolute hidden right-0 mt-2 rounded-md w-40 bg-neutral-300 text-gray-700 p-1">
+                <?php
+                foreach ($languages as $language): ?>
+                    <li class="mb-1 hover:text-amber-500"><a class="dropdown-item"
+                            href="<?php echo base_url('language/language_switch/') . $language->short_form; ?>">
+                            <?php echo $language->name; ?>
+                        </a></li>
+                <?php endforeach; ?>
+            </ul>
+        </li>
+        <!-- END language -->
     <?php endif; ?>
 </ul>
 <div class="flex items-center md:hidden relative">
@@ -71,8 +79,11 @@ $movie_request_enable = ovoo_config('movie_request_enable');
         </div>
         <ul id="langList_m" class="z-50 absolute hidden right-0 mt-2 rounded-md w-40 bg-neutral-300 text-gray-700 p-1">
             <?php
-                foreach ($languages as $language) : ?>
-                <li class="mb-1 hover:text-amber-500"><a class="dropdown-item" href="<?php echo base_url('language/language_switch/').$language->short_form; ?>"><?php echo $language->name; ?></a></li>
+            foreach ($languages as $language): ?>
+                <li class="mb-1 hover:text-amber-500"><a class="dropdown-item"
+                        href="<?php echo base_url('language/language_switch/') . $language->short_form; ?>">
+                        <?php echo $language->name; ?>
+                    </a></li>
             <?php endforeach; ?>
         </ul>
     </div>

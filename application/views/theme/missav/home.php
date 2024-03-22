@@ -62,6 +62,25 @@
         </div>
     </div>
 
+    <div id="section-opt">
+        <div class="flex items-center justify-between pt-10 pb-6">
+            <span class="text-2xl md:text-3xl leading-7 font-bold">
+                <?php echo trans('latest_tv_series'); ?>
+            </span>
+            <a href="<?php echo base_url('tv-series.html') ?>" class="text-xs md:text-sm text-red-600 hover:text-red-500">
+                <?php echo trans('view_more'); ?> »
+            </a>
+        </div>
+        <div id="hot" class="tab-content">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5">
+                <?php $latest_published_videos = $this->common_model->latest_published_tv_series(12); ?>
+                <?php foreach ($latest_published_videos as $videos) : ?>
+                    <?php include ('thumbnail.php'); ?>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+
     <?php
         $featured_genres = $this->common_model->get_features_genres(6);
         foreach ($featured_genres as $genre) :

@@ -700,7 +700,7 @@ class Home extends Home_Core_Controller {
         $this->db->where('publication', '1');     
         $this->db->limit($movie_per_page,$offset);
         $data['all_videos'] 		=  $this->db->get('videos')->result_array();
-        $response['movie_list']    	= $this->load->view('theme/default/filter_movies',$data,TRUE);
+        $response['movie_list']    	= $this->load->view('theme/'.$this->active_theme.'/filter_movies',$data,TRUE);
 
 
 		// category		
