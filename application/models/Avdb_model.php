@@ -182,7 +182,7 @@ class Avdb_model extends CI_Model
                 $episode['episodes_name'] = $ep['slug'];
                 $episode['order'] = '0';
                 $episode['date_added'] = $datetime;
-                $episode['stream_key'] = 'avdbcms';
+                $episode['stream_key'] = $this->generate_random_string();
                 $episode['file_source'] = 'embed';
                 $episode['file_url'] = $ep['link_embed'];
                 $episode['source_type'] = 'link';
@@ -198,7 +198,7 @@ class Avdb_model extends CI_Model
                 }
                 $file_data['videos_id'] = (int) $video_id;
                 $file_data['file_source'] = 'embed';
-                $file_data['stream_key'] = 'avdbcms';
+                $file_data['stream_key'] = $this->generate_random_string();
                 $file_data['source_type'] = 'link';
                 $file_data['file_url'] = $ep['link_embed'];
                 $file_data['label'] = $ep['slug'];
@@ -219,5 +219,16 @@ class Avdb_model extends CI_Model
         foreach ($directors as $director) {
             $this->common_model->get_star_id_by_name('director', $director);
         }
+    }
+    function generate_random_string($length = 12)
+    {
+        $str = "";
+        $characters = array_merge(range('a', 'z'), range('0', '9'));
+        $max = count($characters) - 1;
+        for ($i = 0; $i < $length; $i++) {
+            $rand = mt_rand(0, $max);
+            $str .= $characters[$rand];
+        }
+        return $str;
     }
 }
