@@ -133,7 +133,7 @@ class Avdb_model extends CI_Model
             $insert_id = $this->db->insert_id();
 
             // Update slug
-            $slug = url_title($data['name'], 'dash', TRUE);
+            $slug = url_title($movie_data['slug'], 'dash', TRUE);
             $slug_num = $this->common_model->slug_num('videos', $slug);
             if ($slug_num > 0) {
                 $slug = $slug . '-' . $insert_id;
