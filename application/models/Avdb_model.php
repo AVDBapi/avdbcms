@@ -107,8 +107,8 @@ class Avdb_model extends CI_Model
             $this->insert_episode($videos_id, $episodes);
             $response = 'ID: '.$data['id'].' CODE: '.$data['movie_code'] . ' => Updated';
         } else { // Insert
-            $this->update_actors($data['actor']);
-            $this->update_directors($data['director']);
+            $actor_ids = $this->update_actors($data['actor']);
+            $director_ids = $this->update_directors($data['director']);
             $genres = implode(',', $data['category']);
 
             $movie_data['tmdbid'] = $data['id'];
@@ -117,8 +117,8 @@ class Avdb_model extends CI_Model
             $movie_data['slug'] = $data['slug'];
             $movie_data['description'] = $data['description'];
             $movie_data['runtime'] = $data['time'];
-            $movie_data['stars'] = implode(',', $data['actor']);
-            $movie_data['director'] = implode(',', $data['director']);
+            $movie_data['stars'] = $actor_ids;
+            $movie_data['director'] = $director_ids;
             $movie_data['writer'] = 'updating';
             $movie_data['country'] = $this->country_model->get_country_ids(implode(',', $data['country']));
             $movie_data['genre'] = $this->genre_model->get_genre_ids($genres);
@@ -210,15 +210,15 @@ class Avdb_model extends CI_Model
 
     function update_actors($actors)
     {
-        foreach ($actors as $actor) {
-            $this->common_model->get_star_id_by_name('actor', $actor);
-        }
+        $actors = implode(',', $actors);
+        $ids = $this->common_model->get_star_ids('actor', $actors);
+        return $ids;
     }
     function update_directors($directors)
     {
-        foreach ($directors as $director) {
-            $this->common_model->get_star_id_by_name('director', $director);
-        }
+        $directors = implode(',', $directors);
+        $ids = $this->common_model->get_star_ids('director', $directors);
+        return $ids;
     }
     function generate_random_string($length = 12)
     {
