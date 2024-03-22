@@ -165,22 +165,46 @@ class Avdb_model extends CI_Model
         $file_data = array();
 
         if (count($episodes) > 1) {
-            $this->db->where('videos_id', $video_id);
-            $this->db->update('videos', ['is_tvseries' => '1']);
-        }
+            $season['videos_id'] = $video_id;
+            $season['seasons_name'] = 'Season 1';
+            $season['order'] = '0';
+            $this->db->insert('seasons', $season);
+            $season_id = $this->db->insert_id();
 
-        foreach ($episodes as $ep) {
-            if ($ep['link_embed'] == '') {
-                continue;
+            foreach ($episodes as $ep) {
+                if ($ep['link_embed'] == '') {
+                    continue;
+                }
+                $datetime = date("Y-m-d H:i:s");
+                
+                $episode['videos_id'] = $video_id;
+                $episode['seasons_id'] = $season_id;
+                $episode['episodes_name'] = $ep['slug'];
+                $episode['order'] = '0';
+                $episode['date_added'] = $datetime;
+                $episode['stream_key'] = 'avdbcms';
+                $episode['file_source'] = 'embed';
+                $episode['file_url'] = $ep['link_embed'];
+                $episode['source_type'] = 'link';
+                $this->db->insert('episodes', $episode);
+
+                $this->db->where('videos_id', $video_id);
+                $this->db->update('videos', ['is_tvseries' => '1', 'last_ep_added' => $datetime]);
             }
-            $file_data['videos_id'] = (int) $video_id;
-            $file_data['file_source'] = 'embed';
-            $file_data['stream_key'] = 'avdbcms';
-            $file_data['source_type'] = 'link';
-            $file_data['file_url'] = $ep['link_embed'];
-            $file_data['label'] = $ep['slug'];
-
-            $this->db->insert('video_file', $file_data);
+        } else {
+            foreach ($episodes as $ep) {
+                if ($ep['link_embed'] == '') {
+                    continue;
+                }
+                $file_data['videos_id'] = (int) $video_id;
+                $file_data['file_source'] = 'embed';
+                $file_data['stream_key'] = 'avdbcms';
+                $file_data['source_type'] = 'link';
+                $file_data['file_url'] = $ep['link_embed'];
+                $file_data['label'] = $ep['slug'];
+    
+                $this->db->insert('video_file', $file_data);
+            }
         }
     }
 
