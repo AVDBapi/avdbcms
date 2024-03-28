@@ -70,9 +70,29 @@ $movie_request_enable = ovoo_config('movie_request_enable');
         </li>
         <!-- END language -->
     <?php endif; ?>
+    <?php if($this->session->userdata('login_status') == 1):?>
+        <li class="ml-4 relative">
+            <div id="showProfile">
+                <img class="rounded-full h-5 w-5" src="<?php echo $this->common_model->get_img('user', $this->session->userdata('user_id'));?>">
+            </div>
+            <ul id="profileList" class="z-50 absolute hidden right-0 mt-2 rounded-md w-40 bg-neutral-300 text-gray-700 p-1">
+                <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/profile'); ?>"><?php echo trans('profile'); ?></a></li>
+                <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/subscription'); ?>"><?php echo trans('my_subscription'); ?></a></li>
+                <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/favorite'); ?>"><?php echo trans('my_favorite'); ?></a></li>
+                <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/watch-later'); ?>"><?php echo trans('wish_list'); ?></a></li>
+                <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/update'); ?>"><?php echo trans('update_profile'); ?></a></li>
+                <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/change-password'); ?>"><?php echo trans('change_password'); ?></a></li>
+                <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('login/logout'); ?>"><?php echo trans('logout'); ?></a></li>
+            </ul>
+        </li>
+    <?php else: ?>
+        <?php if($frontend_login_enable =='1'): ?>
+            <li class="text-amber-500 hover:text-amber-300"><a href="<?php echo base_url('user/login'); ?>"><?php echo trans('account'); ?></a></li>
+        <?php endif; ?>
+    <?php endif; ?>
 </ul>
-<div class="flex items-center md:hidden relative">
-    <div class="relative mr-3">
+<div class="flex items-center md:hidden relative justify-around gap-x-3">
+    <div class="relative">
         <div id="showLang_m" class="flex items-center justify-center cursor-pointer">
             <i class="fa-solid fa-language mr-1 text-amber-500"></i>
             <?php echo $this->language_model->language_by_id($this->session->userdata('active_language_id')); ?>
@@ -87,8 +107,28 @@ $movie_request_enable = ovoo_config('movie_request_enable');
             <?php endforeach; ?>
         </ul>
     </div>
+    <?php if($this->session->userdata('login_status') == 1):?>
+        <div class="relative">
+            <div id="showProfile_m">
+                <img class="rounded-full h-5 w-5" src="<?php echo $this->common_model->get_img('user', $this->session->userdata('user_id'));?>">
+            </div>
+            <ul id="profileList_m" class="z-50 absolute hidden right-0 mt-2 rounded-md w-40 bg-neutral-300 text-gray-700 p-1">
+                <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/profile'); ?>"><?php echo trans('profile'); ?></a></li>
+                <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/subscription'); ?>"><?php echo trans('my_subscription'); ?></a></li>
+                <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/favorite'); ?>"><?php echo trans('my_favorite'); ?></a></li>
+                <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/watch-later'); ?>"><?php echo trans('wish_list'); ?></a></li>
+                <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/update'); ?>"><?php echo trans('update_profile'); ?></a></li>
+                <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/change-password'); ?>"><?php echo trans('change_password'); ?></a></li>
+                <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('login/logout'); ?>"><?php echo trans('logout'); ?></a></li>
+            </ul>
+        </div>
+    <?php else: ?>
+        <?php if($frontend_login_enable =='1'): ?>
+            <li class="text-amber-500 hover:text-amber-300"><a href="<?php echo base_url('user/login'); ?>"><?php echo trans('account'); ?></a></li>
+        <?php endif; ?>
+    <?php endif; ?>
     <button id="showMenu"><i class="fa-solid fa-bars"></i></button>
-    <div id="menu" class="z-50 absolute right-0 mt-2 w-56 rounded-md shadow-lg hidden">
+    <div id="menu" class="z-50 absolute right-0 top-5 mt-2 w-56 rounded-md shadow-lg hidden">
         <div class="rounded-md shadow-sm bg-neutral-300 text-gray-700">
             <ul class="py-1">
                 <li>
@@ -146,6 +186,12 @@ $movie_request_enable = ovoo_config('movie_request_enable');
         });
         $("#showLang_m").on("click", (e) => {
             $("#langList_m").toggleClass('hidden');
+        });
+        $("#showProfile").on("click", (e) => {
+            $("#profileList").toggleClass('hidden');
+        });
+        $("#showProfile_m").on("click", (e) => {
+            $("#profileList_m").toggleClass('hidden');
         });
     });
 </script>
