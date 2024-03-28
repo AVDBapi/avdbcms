@@ -77,7 +77,6 @@ $movie_request_enable = ovoo_config('movie_request_enable');
             </div>
             <ul id="profileList" class="z-50 absolute hidden right-0 mt-2 rounded-md w-40 bg-neutral-300 text-gray-700 p-1">
                 <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/profile'); ?>"><?php echo trans('profile'); ?></a></li>
-                <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/subscription'); ?>"><?php echo trans('my_subscription'); ?></a></li>
                 <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/favorite'); ?>"><?php echo trans('my_favorite'); ?></a></li>
                 <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/watch-later'); ?>"><?php echo trans('wish_list'); ?></a></li>
                 <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/update'); ?>"><?php echo trans('update_profile'); ?></a></li>
@@ -114,7 +113,6 @@ $movie_request_enable = ovoo_config('movie_request_enable');
             </div>
             <ul id="profileList_m" class="z-50 absolute hidden right-0 mt-2 rounded-md w-40 bg-neutral-300 text-gray-700 p-1">
                 <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/profile'); ?>"><?php echo trans('profile'); ?></a></li>
-                <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/subscription'); ?>"><?php echo trans('my_subscription'); ?></a></li>
                 <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/favorite'); ?>"><?php echo trans('my_favorite'); ?></a></li>
                 <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/watch-later'); ?>"><?php echo trans('wish_list'); ?></a></li>
                 <li class="mb-1 hover:text-amber-500"><a href="<?php echo base_url('my-account/update'); ?>"><?php echo trans('update_profile'); ?></a></li>

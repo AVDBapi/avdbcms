@@ -1,29 +1,4 @@
-<section class="inner-banner-section banner-section bg-overlay-black <?php echo (ovoo_config('bg_img_disable')=='1')? '':'bg_img'; ?>">
-    <!-- Breadcrumb -->
-    <div id="title-bar">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9 col-sm-8 col-xs-12">
-                    <div class="page-title">
-                        <h1 class="text-uppercase">
-                            Profile Information
-                        </h1>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-4 col-xs-12 text-right">
-                    <ul class="breadcrumb">
-                        <li>
-                            <a href="<?php echo base_url();?>"><i class="fi ion-ios-home"></i>Home</a>
-                        </li>
-                        <li class="active">Subscription</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Breadcrumb -->
-
-
+<section>
     <!-- Profile Section -->
     <div id="section-opt">
         <div class="container">

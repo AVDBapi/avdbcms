@@ -1,115 +1,58 @@
-<section class="inner-banner-section banner-section bg-overlay-black <?php echo (ovoo_config('bg_img_disable')=='1')? '':'bg_img'; ?>">
-    <!-- Breadcrumb -->
-    <div id="title-bar">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9 col-sm-8 col-xs-12">
-                    <div class="page-title">
-                        <h1 class="text-uppercase">
-                            <?php echo trans('my_wish_list'); ?>
-                        </h1>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-4 col-xs-12 text-right">
-                    <ul class="breadcrumb">
-                        <li>
-                            <a href="<?php echo base_url();?>"><i class="fi ion-ios-home"></i><?php echo trans('home'); ?></a>
-                        </li>
-                        <li class=""><?php echo trans('my_account'); ?></li>
-                        <li class="active"><?php echo trans('favorite'); ?></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Breadcrumb -->
-
-
+<section>
     <!-- Profile Section -->
-    <div id="section-opt">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div class="profiles-wrap">
-                        <div class="sidebar col-md-3 col-sm-3">
-                            <div class="sidebar-menu">
-                                <div class="sb-title"><i class="fa fa-navicon mr5"></i> <?php echo trans("menu");?></div>
-                                <ul>
-                                    <li class="">
-                                        <a href="<?php echo base_url('my-account/profile'); ?>">
-                                            <i class="fi ion-ios-person-outline m-r-10"></i> <?php echo trans("profile");?>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="<?php echo base_url('my-account/subscription'); ?>">
-                                            <i class="fi ion-ios-briefcase-outline m-r-10"></i> <?php echo trans("my_subscription");?>
-                                        </a>
-                                    </li>
-                                    <li class="active">
-                                        <a href="<?php echo base_url('my-account/favorite'); ?>">
-                                            <i class="fi ion-ios-heart-outline m-r-10"></i><?php echo trans("favorite");?>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="<?php echo base_url('my-account/watch-later'); ?>">
-                                            <i class="fi ion-ios-clock-outline m-r-10"></i> <?php echo trans("watch_later");?>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="<?php echo base_url('my-account/update'); ?>">
-                                            <i class="fi ion-edit m-r-10"></i> <?php echo trans("update_profile");?>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="<?php echo base_url('my-account/change-password'); ?>">
-                                            <i class="fi ion-key m-r-10"></i> <?php echo trans("change_password");?>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="pp-main col-md-9 col-sm-9">
-                            <div class="ppm-head">
-                                <div class="ppmh-title"><i class="fa fa-clock-o mr5"></i> <?php echo trans('my_wish_list'); ?></div>
-                            </div>
-                            <div class="ppm-content user-content">
-
-                                <div class="col-md-12 col-sm-12">
-                                    <div class="latest-movie movie-opt">
-                                        <table class="table table-striped">
-                                            <?php 
-                                                foreach($fav_videos as $favorite_videos):
-                                                $all_fav_videos = $this->db->get_where('videos', array('videos_id'=>$favorite_videos['videos_id']))->result_array();
-                                                foreach ($all_fav_videos as $videos) :
-                                            ?>
-                                            <tr id="row_<?php echo $favorite_videos['wish_list_id'];?>">
-                                                <td width="180" valign="top"><a href="<?php echo base_url('watch/'.$videos['slug'].'.html');?>"><img class="img-responsive" src="<?php echo $this->common_model->get_video_thumb_url($videos['videos_id']); ?>" width="120" alt="Blade Runner 2049"></a></td>
-                                                <td valign="top">
-                                                    <div>
-                                                        <a href="<?php if($videos['is_tvseries'] =='1'){ echo base_url('tv-series/watch/'.$videos['slug'].'.html');}else{  echo base_url('watch/'.$videos['slug'].'.html');}?>"><h3><?php echo $videos['title'];?></h3></a>
-                                                    </div>
-                                                    <?php echo $videos['description'];?>
-                                                </td>
-                                                <td width="70" valign="top">
-                                                    <a class="btn btn-xs btn-success" href="<?php echo base_url('watch/'.$videos['slug'].'.html');?>"><i class="fa fa-eye"></i></a>
-                                                    <button class="btn btn-xs btn-danger" onclick="wish_list_remove('<?php echo $favorite_videos['wish_list_id'];?>')"><i class="fa fa-close"></i></button>                                                
-                                                </td>
-                                            </tr>
-                                        <?php endforeach; endforeach; ?>
-                                        </table>                                
-                                    </div>
-                                </div>
-
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-            </div>
+    <div class="grid grid-cols-1 lg:grid-cols-6 gap-4">
+        <div class="lg:col-span-2 uppercase">
+            <h4 class="py-2 bg-slate-900 px-4 border-b border-gray-500"><?php echo trans("menu"); ?></h4>
+            <ul class="bg-slate-900 px-4 mt-1 text-gray-400">
+                <li class="py-2 hover:text-gray-200 hover:ml-2">
+                    <a href="<?php echo base_url('my-account/profile'); ?>">
+                        <?php echo trans("profile"); ?>
+                    </a>
+                </li>
+                <li class="py-2 hover:text-gray-200 hover:ml-2">
+                    <a href="<?php echo base_url('my-account/favorite'); ?>">
+                        <?php echo trans("favorite"); ?>
+                    </a>
+                </li>
+                <li class="py-2 hover:text-gray-200 hover:ml-2">
+                    <a href="<?php echo base_url('my-account/watch-later'); ?>">
+                        <?php echo trans("watch_later"); ?>
+                    </a>
+                </li>
+                <li class="py-2 hover:text-gray-200 hover:ml-2">
+                    <a href="<?php echo base_url('my-account/update'); ?>">
+                        <?php echo trans("update_profile"); ?>
+                    </a>
+                </li>
+                <li class="py-2 hover:text-gray-200 hover:ml-2">
+                    <a href="<?php echo base_url('my-account/change-password'); ?>">
+                        <?php echo trans("change_password"); ?>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="lg:col-span-4">
+            <p class="text-base lg:text-xl font-bold mb-2 lg:mb-5"><?php echo trans('my_wish_list'); ?></p>
+            <table class="table table-striped">
+                <?php 
+                    foreach($fav_videos as $favorite_videos):
+                    $all_fav_videos = $this->db->get_where('videos', array('videos_id'=>$favorite_videos['videos_id']))->result_array();
+                    foreach ($all_fav_videos as $videos) :
+                ?>
+                    <tr id="row_<?php echo $favorite_videos['wish_list_id'];?>" class="flex flex-col lg:block mb-3">
+                        <td valign="top" class="w-40"><a href="<?php echo base_url('watch/'.$videos['slug'].'.html');?>"><img class="aspect-video w-full h-auto rounded-md" src="<?php echo $this->common_model->get_video_thumb_url($videos['videos_id']); ?>"></a></td>
+                        <td valign="top">
+                            <a class="text-sm hover:text-pink-500 line-clamp-3 text-ellipsis" href="<?php echo base_url('watch/'.$videos['slug'].'.html');?>"><?php echo $videos['title'];?></a>
+                        </td>
+                        <td class="w-20" valign="top">
+                            <a class="text-base text-sky-500 mr-4" href="<?php echo base_url('watch/'.$videos['slug'].'.html');?>"><i class="fa fa-eye"></i></a>
+                            <button class="text-base text-red-500" onclick="wish_list_remove('<?php echo $favorite_videos['wish_list_id'];?>')"><i class="fa fa-close"></i></button>                                                
+                        </td>
+                    </tr>
+                <?php endforeach; endforeach; ?>
+            </table>
         </div>
     </div>
-
     <!-- Profile Section -->
 
     <!--sweet alert2 JS -->
