@@ -16,10 +16,14 @@
     <div id="section-opt">
         <div class="mb-6">
             <div class="relative mb-3">
-                <div class="font-semibold">
+                <div class="font-semibold flex items-center justify-between">
                     <?php echo trans('categories'); ?>
+                    <button class="see-more font-normal text-gray-300 hover:text-gray-100 inline-flex items-center">
+                        <span class="capitalize">see more</span>
+                        <i class="fa-solid fa-caret-right ml-1"></i>
+                    </button>
                 </div>
-                <ul class="genres-checkbox flex flex-wrap mt-3">
+                <ul class="genres-checkbox flex-wrap mt-3 hidden">
                     <?php foreach ($this->genre_model->genres() as $genre): ?>
                         <li class="m-1 modern-Checkbox">
                             <input type="checkbox" name="check_category" onclick="check_category(this)"
@@ -181,6 +185,18 @@
         });
         $('.common_selector').click(function () {
             filter_data(1);
+        });
+        $('.see-more').on('click', function (e) {
+            e.preventDefault();
+            $('.genres-checkbox').toggleClass('hidden');
+            $('.genres-checkbox').toggleClass('flex');
+            $('.see-more i').toggleClass('fa-caret-right');
+            $('.see-more i').toggleClass('fa-caret-down');
+            if ($('.see-more span').html() == 'see more') {
+                $('.see-more span').html('see less');
+            }else {
+                $('.see-more span').html('see more');
+            }
         });
     });
 
