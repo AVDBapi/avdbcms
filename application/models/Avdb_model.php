@@ -114,7 +114,7 @@ class Avdb_model extends CI_Model
             $movie_data['tmdbid'] = $data['id'];
             $movie_data['title'] = $data['name'];
             $movie_data['seo_title'] = $data['name'];
-            $movie_data['slug'] = $this->common_model->get_seo_url($data['name']);
+            $movie_data['slug'] = $data['slug'];
             $movie_data['description'] = $data['description'];
             $movie_data['runtime'] = $data['time'];
             $movie_data['stars'] = $actor_ids;
