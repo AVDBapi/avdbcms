@@ -113,7 +113,7 @@ class Avdb_model extends CI_Model
 
             $movie_data['tmdbid'] = $data['id'];
             $movie_data['title'] = $data['name'];
-            $movie_data['seo_title'] = $data['slug'];
+            $movie_data['seo_title'] = $this->common_model->get_seo_url($data['name']);
             $movie_data['slug'] = $data['slug'];
             $movie_data['description'] = $data['description'];
             $movie_data['runtime'] = $data['time'];
@@ -123,7 +123,7 @@ class Avdb_model extends CI_Model
             $movie_data['country'] = $this->country_model->get_country_ids(implode(',', $data['country']));
             $movie_data['genre'] = $this->genre_model->get_genre_ids($genres);
             $movie_data['imdb_rating'] = 'n/a';
-            $movie_data['release'] = $data['year'];
+            $movie_data['release'] = $data['created_at'];
             $movie_data['video_quality'] = 'HD';
             $movie_data['publication'] = '1';
             $movie_data['enable_download'] = '0';
