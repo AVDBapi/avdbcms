@@ -119,7 +119,7 @@ class Avdb_model extends CI_Model
             $movie_data['runtime'] = $data['time'];
             $movie_data['stars'] = $actor_ids;
             $movie_data['director'] = $director_ids;
-            $movie_data['writer'] = 'updating';
+            $movie_data['writer'] = $data['movie_code'];
             $movie_data['country'] = $this->country_model->get_country_ids(implode(',', $data['country']));
             $movie_data['genre'] = $this->genre_model->get_genre_ids($genres);
             $movie_data['imdb_rating'] = 'n/a';
