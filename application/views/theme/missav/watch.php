@@ -65,7 +65,7 @@
                         </div>
                         <div>
                             <span><?php echo trans('code'); ?>:</span>
-                            <span class="text-amber-300 uppercase"><?php echo $watch_videos->writer;?></span>
+                            <span class="text-amber-300 uppercase"><?php if ($watch_videos->writer != 'updating') { echo $watch_videos->writer; } else { echo $watch_videos->seo_title; };?></span>
                         </div>
                         <div>
                             <span><?php echo trans('genre'); ?>:</span>
