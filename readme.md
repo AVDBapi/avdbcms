@@ -8,17 +8,18 @@
 - mbstring
 - allow_url_fopen
 ![image](https://github.com/AVDBapi/avdbcms/assets/165064610/beac9d90-44e0-427f-860a-079388b51f3e)
-Step 1: Unzip the downloaded file on your VPS.
-Step 2: Visit Domain.example/install and fill in the necessary information.
+Step 1: Unzip the downloaded file on your VPS.	
+Step 2: Visit Domain.example/install and fill in the necessary information.	
 ![image](https://github.com/AVDBapi/avdbcms/assets/165064610/7b766c2f-fcda-44c6-921f-bd300b7733fe)
-Step 3: Enter the purchase code: avdbcms
-Step 4: Please go to the path of the code folder you uploaded and edit the index.php file line 59 from "development" to "production"
+Step 3: Enter the purchase code: avdbcms <br>
+Step 4: Please go to the path of the code folder you uploaded and edit the index.php file line 59 from "development" to "production" <br>
 ![image](https://github.com/AVDBapi/avdbcms/assets/165064610/3c7cdbf7-2213-47bf-9f1d-112dc3928e91)
 Step 5: Remember your account details and login at Domain.example/login
-Notes
-Remove the install file after a successful installation.
-Password must be at least 6 characters long.
-Q&A Install: 
+<br>
+Notes <br>
+<br>- Remove the install file after a successful installation.
+<br>- Password must be at least 6 characters long.
+<br>- Q&A Install: 
 1.To upload a new movie, please navigate to the "Movies" or "Series" sections for uploading. Do not upload it to a blog, page, or article. Otherwise, you may encounter slug errors.
 
 2. If crawling is unsuccessful, press F12 to check for errors. If you encounter "This request has been blocked; the content must be served over HTTPS," add "https://" to the website URL.
