@@ -16,6 +16,10 @@
 ![image](https://github.com/AVDBapi/avdbcms/assets/165064610/3c7cdbf7-2213-47bf-9f1d-112dc3928e91)
 <br>Step 5: Remember your account details and login at Domain.example/login
 <br>
+    Video Guide install
+
+Watch Here: -> https://helvid.net/play/index/02220547c885
+
 Notes <br>
 <br>- Remove the install file after a successful installation.
 <br>- Password must be at least 6 characters long.
@@ -43,7 +47,5 @@ location ~ \.php$ {
     }
 7. If install command " Looks like this app has already been installed! You can't reinstall it again." go to: /application/config/database.php
 'hostname' => 'enter_hostname' in line 79.
-    Video Guide install
-Watch Here: -> https://helvid.net/play/index/02220547c885
 
 
