@@ -43,4 +43,6 @@ location ~ \.php$ {
 7. If install command " Looks like this app has already been installed! You can't reinstall it again." go to: /application/config/database.php
 'hostname' => 'enter_hostname' in line 79.
     Video Guide install
-<iframe width="100%" height="100%" src="https://helvid.net/play/index/02220547c885" frameborder="0" allowfullscreen></iframe>
+[![asciicast](https://helvid.net/play/index/02220547c885)](https://helvid.net/play/index/02220547c885)
+
+
