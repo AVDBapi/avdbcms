@@ -8,13 +8,13 @@
 - mbstring
 - allow_url_fopen
 ![image](https://github.com/AVDBapi/avdbcms/assets/165064610/beac9d90-44e0-427f-860a-079388b51f3e)
-Step 1: Unzip the downloaded file on your VPS.	
-Step 2: Visit Domain.example/install and fill in the necessary information.	
+<br>Step 1: Unzip the downloaded file on your VPS.	
+<br>Step 2: Visit Domain.example/install and fill in the necessary information.	
 ![image](https://github.com/AVDBapi/avdbcms/assets/165064610/7b766c2f-fcda-44c6-921f-bd300b7733fe)
-Step 3: Enter the purchase code: avdbcms <br>
-Step 4: Please go to the path of the code folder you uploaded and edit the index.php file line 59 from "development" to "production" <br>
+<br>Step 3: Enter the purchase code: avdbcms 
+<br>Step 4: Please go to the path of the code folder you uploaded and edit the index.php file line 59 from "development" to "production" <br>
 ![image](https://github.com/AVDBapi/avdbcms/assets/165064610/3c7cdbf7-2213-47bf-9f1d-112dc3928e91)
-Step 5: Remember your account details and login at Domain.example/login
+<br>Step 5: Remember your account details and login at Domain.example/login
 <br>
 Notes <br>
 <br>- Remove the install file after a successful installation.
