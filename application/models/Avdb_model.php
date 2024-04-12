@@ -165,11 +165,18 @@ class Avdb_model extends CI_Model
         $file_data = array();
 
         if (count($episodes) > 1) {
-            $season['videos_id'] = $video_id;
-            $season['seasons_name'] = 'Season 1';
-            $season['order'] = '0';
-            $this->db->insert('seasons', $season);
-            $season_id = $this->db->insert_id();
+            $seasons = $this->common_model->get_seasons_by_videos_id($video_id);
+            if (count($seasons) >= 1) {
+                $season_id = $seasons[0]['seasons_id'];
+            } else {
+                $season['videos_id'] = $video_id;
+                $season['seasons_name'] = 'Season 1';
+                $season['order'] = '0';
+                $this->db->insert('seasons', $season);
+                $season_id = $this->db->insert_id();
+            }
+
+            $this->db->delete('episodes', array('videos_id' => $video_id, 'seasons_id' => $season_id));
 
             foreach ($episodes as $ep) {
                 if ($ep['link_embed'] == '') {
@@ -188,9 +195,12 @@ class Avdb_model extends CI_Model
                 $episode['source_type'] = 'link';
                 $this->db->insert('episodes', $episode);
 
-                $this->db->where('videos_id', $video_id);
-                $this->db->update('videos', ['is_tvseries' => '1', 'last_ep_added' => $datetime]);
             }
+            $this->db->where('videos_id', $video_id);
+            $this->db->update('videos', array(
+                'is_tvseries' => '1',
+                'last_ep_added' => date("Y-m-d H:i:s")
+            ));
         } else {
             foreach ($episodes as $ep) {
                 if ($ep['link_embed'] == '') {
