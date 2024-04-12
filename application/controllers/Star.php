@@ -77,7 +77,7 @@ class Star extends Home_Core_Controller {
                         $config                         = array();
                         $config["base_url"]             = base_url() . "star/".$slug;
                         $config["total_rows"]           = $this->common_model->get_video_by_star_record_count($star_id);
-                        $config["per_page"]             = 2;
+                        $config["per_page"]             = 10;
                         $config["uri_segment"]          = 3;
                         $config['full_tag_open']        = '<div class="pagination-container text-center"><ul class ="pagination">';
                         $config['full_tag_close']       = '</ul></div><!--pagination-->';
