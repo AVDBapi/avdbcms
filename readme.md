@@ -35,17 +35,20 @@ Notes <br>
 5. To adjust the language, go to the Language File on the VPS, copy the "en" file, rename it to "vn," then edit it to Vietnamese. Afterward, add "vn" to the website in the language section.
 
 6. If encountering a 404 error when accessing the website, and using Nginx, add the following URL rewrite rules:
-location / {
-        try_files $uri $uri/ /index.php?$args;
-    }
-location ~ \.php$ {
-        include fastcgi_params;
-        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock; # Ensure this matches your PHP-FPM socket path
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        fastcgi_param HTTP_AUTHORIZATION $http_authorization;
-        fastcgi_index index.php;
-    }
-7. If install command " Looks like this app has already been installed! You can't reinstall it again." go to: /application/config/database.php
-'hostname' => 'enter_hostname' in line 79.
 
+
+       location / {
+            try_files $uri $uri/ /index.php?$args;
+           }
+        location ~ \.php$ {
+            include fastcgi_params;
+            fastcgi_pass unix:/var/run/php/php7.4-fpm.sock; # Ensure this matches your PHP-FPM socket path
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            fastcgi_param HTTP_AUTHORIZATION $http_authorization;
+            fastcgi_index index.php;
+        }
+   
+8. If install command " Looks like this app has already been installed! You can't reinstall it again." go to: /application/config/database.php
+'hostname' => 'enter_hostname' in line 79.
+9. If buttom update sitemap error "HTTP ERROR 500" -> Up memory limit php 
 
