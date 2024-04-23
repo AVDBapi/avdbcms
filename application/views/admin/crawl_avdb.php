@@ -72,6 +72,7 @@
     </div>
     <div class="col-md-8">
         <h4 class="text-center panel-title">Video Type List</h4>
+        <p style="margin-top: 20px;">Current Page: <span id="currentPage" class="panel-title"></span></p>
         <p>Movies list</p>
         <div><textarea class="col" name="movies" id="movies" rows="10" readonly></textarea></div>
         <hr>
@@ -174,6 +175,7 @@
                 return;
             }
             let currentPage = pageList.shift();
+            $("#currentPage").html(currentPage);
             remainPageList = pageList;
             $.ajax({
                 type: "POST",

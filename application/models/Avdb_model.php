@@ -75,17 +75,19 @@ class Avdb_model extends CI_Model
 
     function get_movie_by_id($id)
     {
-        $data = file_get_contents($this->api . "/?ac=detail&ids=" . $id);
-        $data = json_decode($data, true);
-        $response = array();
-        if (empty($data) || $data['code'] != 1) {
-            $response['status'] = 'fail';
-        } else {
-            $movie_data = $data['list'][0];
-            $msg = $this->insert_or_update_movie($movie_data);
-            $response['status'] = 'success';
-            $response['msg'] = $msg;
-        }
+        $response = array('status' => 'fail');
+        try {
+            $data = file_get_contents($this->api . "/?ac=detail&ids=" . $id);
+            $data = json_decode($data, true);
+            if (empty($data) || $data['code'] != 1) {
+                $response['status'] = 'fail';
+            } else {
+                $movie_data = $data['list'][0];
+                $msg = $this->insert_or_update_movie($movie_data);
+                $response['status'] = 'success';
+                $response['msg'] = $msg;
+            }
+        } catch (Exception $e) {}
 
         return $response;
     }
@@ -104,8 +106,12 @@ class Avdb_model extends CI_Model
             $this->db->delete('video_file');
 
             $episodes = $data['episodes']['server_data'];
-            $this->insert_episode($videos_id, $episodes);
-            $response = 'ID: '.$data['id'].' CODE: '.$data['movie_code'] . ' => Updated';
+            if (is_array($episodes)) {
+                $this->insert_episode($videos_id, $episodes);
+                $response = 'ID: '.$data['id'].' CODE: '.$data['movie_code'] . ' => Updated';
+            } else {
+                $response = 'ID: '.$data['id'].' CODE: '.$data['movie_code'] . ' => Episode Error';
+            }
         } else { // Insert
             $actor_ids = $this->update_actors($data['actor']);
             $director_ids = $this->update_directors($data['director']);
@@ -164,58 +170,60 @@ class Avdb_model extends CI_Model
     {
         $file_data = array();
 
-        if (count($episodes) > 1) {
-            $seasons = $this->common_model->get_seasons_by_videos_id($video_id);
-            if (count($seasons) >= 1) {
-                $season_id = $seasons[0]['seasons_id'];
-            } else {
-                $season['videos_id'] = $video_id;
-                $season['seasons_name'] = 'Season 1';
-                $season['order'] = '0';
-                $this->db->insert('seasons', $season);
-                $season_id = $this->db->insert_id();
-            }
-
-            $this->db->delete('episodes', array('videos_id' => $video_id, 'seasons_id' => $season_id));
-
-            foreach ($episodes as $ep) {
-                if ($ep['link_embed'] == '') {
-                    continue;
+        try {
+            if (count($episodes) > 1) {
+                $seasons = $this->common_model->get_seasons_by_videos_id($video_id);
+                if (count($seasons) >= 1) {
+                    $season_id = $seasons[0]['seasons_id'];
+                } else {
+                    $season['videos_id'] = $video_id;
+                    $season['seasons_name'] = 'Season 1';
+                    $season['order'] = '0';
+                    $this->db->insert('seasons', $season);
+                    $season_id = $this->db->insert_id();
                 }
-                $datetime = date("Y-m-d H:i:s");
-                
-                $episode['videos_id'] = $video_id;
-                $episode['seasons_id'] = $season_id;
-                $episode['episodes_name'] = $ep['slug'];
-                $episode['order'] = '0';
-                $episode['date_added'] = $datetime;
-                $episode['stream_key'] = $this->generate_random_string();
-                $episode['file_source'] = 'embed';
-                $episode['file_url'] = $ep['link_embed'];
-                $episode['source_type'] = 'link';
-                $this->db->insert('episodes', $episode);
-
-            }
-            $this->db->where('videos_id', $video_id);
-            $this->db->update('videos', array(
-                'is_tvseries' => '1',
-                'last_ep_added' => date("Y-m-d H:i:s")
-            ));
-        } else {
-            foreach ($episodes as $ep) {
-                if ($ep['link_embed'] == '') {
-                    continue;
-                }
-                $file_data['videos_id'] = (int) $video_id;
-                $file_data['file_source'] = 'embed';
-                $file_data['stream_key'] = $this->generate_random_string();
-                $file_data['source_type'] = 'link';
-                $file_data['file_url'] = $ep['link_embed'];
-                $file_data['label'] = $ep['slug'];
     
-                $this->db->insert('video_file', $file_data);
+                $this->db->delete('episodes', array('videos_id' => $video_id, 'seasons_id' => $season_id));
+    
+                foreach ($episodes as $ep) {
+                    if ($ep['link_embed'] == '') {
+                        continue;
+                    }
+                    $datetime = date("Y-m-d H:i:s");
+                    
+                    $episode['videos_id'] = $video_id;
+                    $episode['seasons_id'] = $season_id;
+                    $episode['episodes_name'] = $ep['slug'];
+                    $episode['order'] = '0';
+                    $episode['date_added'] = $datetime;
+                    $episode['stream_key'] = $this->generate_random_string();
+                    $episode['file_source'] = 'embed';
+                    $episode['file_url'] = $ep['link_embed'];
+                    $episode['source_type'] = 'link';
+                    $this->db->insert('episodes', $episode);
+    
+                }
+                $this->db->where('videos_id', $video_id);
+                $this->db->update('videos', array(
+                    'is_tvseries' => '1',
+                    'last_ep_added' => date("Y-m-d H:i:s")
+                ));
+            } else {
+                foreach ($episodes as $ep) {
+                    if ($ep['link_embed'] == '') {
+                        continue;
+                    }
+                    $file_data['videos_id'] = (int) $video_id;
+                    $file_data['file_source'] = 'embed';
+                    $file_data['stream_key'] = $this->generate_random_string();
+                    $file_data['source_type'] = 'link';
+                    $file_data['file_url'] = $ep['link_embed'];
+                    $file_data['label'] = $ep['slug'];
+        
+                    $this->db->insert('video_file', $file_data);
+                }
             }
-        }
+        } catch (Exception $e) {}
     }
 
     function update_actors($actors)
