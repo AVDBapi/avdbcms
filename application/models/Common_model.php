@@ -1779,7 +1779,18 @@ class Common_model extends CI_Model {
         return $theme;
     }
 
-    public function generator_sitemap(){
+public function generator_sitemap(){
+        // Remove old sitemap files
+        $sitemapFiles = glob('seo/sitemap/sitemap-*.xml');
+        foreach ($sitemapFiles as $file) {
+            unlink($file);
+        }
+
+        // Remove old sitemap index file
+        $sitemapIndexFile = 'seo/sitemap/sitemap-index.xml';
+        if (file_exists($sitemapIndexFile)) {
+            unlink($sitemapIndexFile);
+        }
         $movies 			= $this->db->get_where('videos', array('publication'=>'1'))->result_array();
         $movie_types 		= $this->db->get('video_type')->result_array();
         $live_tvs 			= $this->db->get_where('live_tv', array('publish'=>'1'))->result_array();
@@ -1792,111 +1803,90 @@ class Common_model extends CI_Model {
         $blog_enable        = ovoo_config('blog_enable');
 		$landing_page_enable= ovoo_config('landing_page_enable');
 		
-		$xml = new SimpleXMLElement("<?xml version='1.0' encoding='UTF-8' ?>\n".'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" />');
-		// home page page
-		$url = $xml->addChild('url');
-		$url->addChild('loc',base_url());
-		$url->addChild('priority','1.0'); 
-		// landing page page
-		if($landing_page_enable == '1'):
-			$url = $xml->addChild('url');
-			$url->addChild('loc',base_url('all-movies.html'));
-			$url->addChild('priority','1.0');
-		endif;
-		
-		// movie page
-		$url = $xml->addChild('url');
-		$url->addChild('loc',base_url('movies.html'));
-		$url->addChild('priority','0.9'); 
+		// Initialize XML for sitemap index
+        $sitemapIndexXml = new SimpleXMLElement("<?xml version='1.0' encoding='UTF-8' ?><sitemapindex xmlns='http://www.sitemaps.org/schemas/sitemap/0.9' />");
 
-		// privacy page
-		$url = $xml->addChild('url');
-		$url->addChild('loc',base_url('privacy-policy.html'));
-		$url->addChild('priority','0.8');
-
-		// dmca page
-		$url = $xml->addChild('url');
-		$url->addChild('loc',base_url('dmca.html'));
-		$url->addChild('priority','0.8');
-
-		// contact page
-		$url = $xml->addChild('url');
-		$url->addChild('loc',base_url('contact-us.html'));
-		$url->addChild('priority','0.9');
-
-		if($live_tv_publish =='1'):
-			// contact page
-			$url = $xml->addChild('url');
-			$url->addChild('loc',base_url('live-tv.html'));
-			$url->addChild('priority','0.9');
-		endif;
-
-
-		// country page
-		foreach($countries as $country):
-			$url = $xml->addChild('url');
-			$url->addChild('loc',base_url("country/".$country['slug'].".html"));
-			$url->addChild('priority','0.5');
-		endforeach;
-
-
-		// genre page
-		foreach($genres as $genre):
-			$url = $xml->addChild('url');
-			$url->addChild('loc',base_url("genre/".$genre['slug'].".html"));
-			$url->addChild('priority','0.5');
-		endforeach;
-		//  year page
-		$current_year = date("Y");
-		$end_year = $current_year - 108;
-		for($i=$current_year;$i>$end_year;$i--):
-			$url = $xml->addChild('url');
-			$url->addChild('loc',base_url("year/".$i.".html"));
-			$url->addChild('priority','0.5');
-		endfor;
-
-		// movie page
-		foreach($movies as $movie):
-			$url = $xml->addChild('url');
-			$url->addChild('loc',base_url("watch/".$movie['slug'].".html"));
-			$url->addChild('priority','0.9');
-		endforeach;
-
-
-		foreach($movie_types as $movie_type):
-			$url = $xml->addChild('url');
-			$url->addChild('loc',base_url("type/".$movie_type['slug'].".html"));
-			$url->addChild('priority','0.9');
-		endforeach;
-
-		foreach($pages as $page):
-			$url = $xml->addChild('url');
-			$url->addChild('loc',base_url("page/".$page['slug'].".html"));
-			$url->addChild('priority','0.9');
-		endforeach;
-
-		foreach($pages as $page):
-			$url = $xml->addChild('url');
-			$url->addChild('loc',base_url("page/".$page['slug'].".html"));
-			$url->addChild('priority','0.9');
-		endforeach;
-
-		if($blog_enable =='1'):
-			$url = $xml->addChild('url');
-			$url->addChild('loc',base_url('blog.html'));
-			$url->addChild('priority','0.9');
-			foreach($posts as $post):
-				$url = $xml->addChild('url');
-				$url->addChild('loc',base_url("blog/".$post['slug'].".html"));
-				$url->addChild('priority','0.9');
-			endforeach;
-		endif;
-		$this->load->helper('file');
-		if (! write_file('sitemap.xml', $xml->asXML())):
-			return true;
-		else:
-			return true;
-		endif;
+        // Function to create a sitemap file
+        $createSitemapFile = function($urls, $index) {
+            $xml = new SimpleXMLElement("<?xml version='1.0' encoding='UTF-8' ?>\n".'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" />');
+            foreach ($urls as $url) {
+                $urlElement = $xml->addChild('url');
+                $urlElement->addChild('loc', $url['loc']);
+                $urlElement->addChild('priority', $url['priority']);
+            }
+            if (!write_file("sitemap-$index.xml", $xml->asXML())) {
+                return false;
+            }
+            return true;
+        };
+    
+        // Collect all URLs
+        $allUrls = [];
+    
+        // Add static pages
+        $staticPages = [
+            ['loc' => base_url(), 'priority' => '1.0'],
+            // Add other static pages here
+        ];
+    
+        $allUrls = array_merge($allUrls, $staticPages);
+    
+        // Add dynamic pages
+        $dynamicPages = [
+            ['items' => $countries, 'urlPrefix' => 'country/', 'priority' => '0.5'],
+            // Add other dynamic pages here
+        ];
+    
+        foreach ($dynamicPages as $page) {
+            $items = $page['items'];
+            $urlPrefix = $page['urlPrefix'];
+            $priority = $page['priority'];
+            foreach ($items as $item) {
+                $allUrls[] = ['loc' => base_url($urlPrefix . $item['slug'] . '.html'), 'priority' => $priority];
+            }
+        }
+    
+        // Add movie pages
+        foreach ($movies as $movie) {
+            $allUrls[] = ['loc' => base_url("watch/".$movie['slug'].".html"), 'priority' => '0.9'];
+        }
+    
+        // Add movie type pages
+        foreach ($movie_types as $movie_type) {
+            $allUrls[] = ['loc' => base_url("type/".$movie_type['slug'].".html"), 'priority' => '0.9'];
+        }
+    
+        // Add regular pages
+        foreach ($pages as $page) {
+            $allUrls[] = ['loc' => base_url("page/".$page['slug'].".html"), 'priority' => '0.9'];
+        }
+    
+        // Add blog pages if enabled
+        if ($blog_enable == '1') {
+            $allUrls[] = ['loc' => base_url('blog.html'), 'priority' => '0.9'];
+            foreach ($posts as $post) {
+                $allUrls[] = ['loc' => base_url("blog/".$post['slug'].".html"), 'priority' => '0.9'];
+            }
+        }
+    
+        // Split URLs into chunks of 200
+        $chunks = array_chunk($allUrls, 200);
+    
+        // Create sitemap files and add them to the sitemap index
+        foreach ($chunks as $index => $chunk) {
+            if (!$createSitemapFile($chunk, $index)) {
+                return false;
+            }
+            $sitemapElement = $sitemapIndexXml->addChild('sitemap');
+            $sitemapElement->addChild('loc', base_url("sitemap-$index.xml"));
+        }
+    
+        // Write sitemap index file
+        if (!write_file('sitemap-index.xml', $sitemapIndexXml->asXML())) {
+            return false;
+        }
+    
+        return true;
     }
 
     // movie file
