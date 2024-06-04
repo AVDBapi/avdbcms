@@ -23,7 +23,7 @@
                         <i class="fa-solid fa-caret-right ml-1"></i>
                     </button>
                 </div>
-                <ul class="genres-checkbox flex flex-wrap mt-3">
+                <ul class="genres-checkbox flex flex-wrap mt-3 hidden">
                     <?php foreach ($this->genre_model->genres() as $genre): ?>
                         <li class="m-1 modern-Checkbox">
                             <input type="checkbox" name="check_category" onclick="check_category(this)"
@@ -133,7 +133,6 @@
 
     $(document).ready(function () {
         filter_data(1);
-        $('.see-more').trigger('click');
         function filter_data(page) {
             $('.movie-container').html("<div id='loader'> </div>");
             var action = 'fetch_data';
