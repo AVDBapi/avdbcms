@@ -133,6 +133,7 @@
 
     $(document).ready(function () {
         filter_data(1);
+        $('.see-more').trigger('click');
         function filter_data(page) {
             $('.movie-container').html("<div id='loader'> </div>");
             var action = 'fetch_data';
