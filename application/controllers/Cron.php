@@ -144,6 +144,43 @@ class Cron extends Home_Core_Controller {
         endif;
     }
 
+    public function crawl($cron_key = '', $param2 = '')
+    {
+        $this->load->model('avdb_model');
+        if(!empty($cron_key) && $cron_key !='' && $cron_key !=NULL):
+            // verify api secret key
+            $verify_apps_cron_key =   $this->common_model->check_cron_key($cron_key);
+            if($verify_apps_cron_key):
+                // Crawl update today
+                $response = $this->avdb_model->get_movies_today();
+                if ($response['status'] == 'fail') {
+                    echo 'Cron: Getting update movies error';
+                    die();
+                }
+                foreach ($response['pages'] as $page) {
+                    $response = $this->avdb_model->get_movies_page($page, '&h=24');
+                    if ($response['status'] == 'fail') {
+                        echo 'Cron: get_movies_page error';
+                        die();
+                    }
+                    foreach ($response['movies'] as $movie) {
+                        $response = $this->avdb_model->get_movie_by_id($movie['id']);
+                        if ($response['status'] == 'fail') {
+                            echo 'Cron: Crawl error, movie ID: ' . $movie['id'];
+                            die();
+                        }
+                        echo 'Cron: Crawl success: ' . $response['msg'];
+                    }
+                }
+                echo 'Crawl process finished';
+            else:
+                echo 'Cron key is invalid.';
+            endif;
+        else:
+            echo 'Cron key must not be null or empty.';
+        endif;
+    }
+
     public function reset_daily_view(){
         $data['today_view'] = 0;
         $this->db->update('videos', $data);

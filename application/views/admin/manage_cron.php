@@ -31,6 +31,9 @@ $backup_schedule        =   $this->db->get_where('config', array('title' => 'bac
         <div class="panel-body">
           <div class="alert alert-info"><strong><?php echo trans('monthly_cron'); ?>: &nbsp;</strong><code>wget -O /dev/null <?php echo base_url('cron/monthly/' . $cron_key); ?></code></div>
         </div>
+        <div class="panel-body">
+          <div class="alert alert-info"><strong><?php echo trans('crawl'); ?>: &nbsp;</strong><code>wget -O /dev/null <?php echo base_url('cron/crawl/' . $cron_key); ?></code></div>
+        </div>
 
         <div class="form-group row">
           <label class="col-sm-3 control-label"><?php echo trans('cron_key'); ?></label>
