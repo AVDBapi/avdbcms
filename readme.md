@@ -52,3 +52,4 @@ Notes <br>
 'hostname' => 'enter_hostname' in line 79.
 9. If buttom update sitemap error "HTTP ERROR 500" -> Up memory limit php 
 
+Tele support: @tuilaavdb
