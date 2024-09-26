@@ -101,8 +101,8 @@ class Avdb_model extends CI_Model
         $isExist = $this->common_model->tmdb_exist($data['id']);
 
         if ($isExist) { // Update
-            $videos_id = $this->db->get_where('videos', array('tmdbid' => $data['id']))->row()->videos_id;
-            $this->db->where('videos_id', $videos_id);
+            $videos_id = $this->db->get_where('videos', array('writer' => $data['movie_code']))->row()->writer;
+            $this->db->where('writer', $writer);
             $this->db->delete('video_file');
 
             $episodes = $data['episodes']['server_data'];
