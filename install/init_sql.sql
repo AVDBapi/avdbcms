@@ -1931,7 +1931,9 @@ CREATE TABLE IF NOT EXISTS `videos` (
   `monthly_view` int(250) DEFAULT 0,
   `total_view` int(250) DEFAULT 1,
   `last_ep_added` datetime DEFAULT '2019-04-04 00:00:00',
-  PRIMARY KEY (`videos_id`)
+  `thumbnail_url` VARCHAR(255) DEFAULT NULL,  -- Thêm dấu phẩy đúng vị trí
+  `poster_url` VARCHAR(255) DEFAULT NULL,    -- Thêm dấu phẩy đúng vị trí
+  PRIMARY KEY (`videos_id`)   -- Đảm bảo khóa chính nằm đúng vị trí
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 -- --------------------------------------------------------
